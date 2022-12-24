@@ -15,7 +15,6 @@ import ffmpeg
 import requests
 from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
-from config import config
 from Deadly.core.filters import command, other_filters
 from Deadly.tgcals.queues import QUEUE, add_to_queue
 from Deadly import call_py, aman as user
