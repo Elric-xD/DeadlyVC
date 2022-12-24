@@ -1,1 +1,1 @@
-worker: python3 -m Deadly
+worker: python3 -m start.py
