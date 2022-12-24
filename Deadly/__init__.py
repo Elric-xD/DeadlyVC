@@ -49,7 +49,7 @@ blaze = Client(
     
     )
 
-user = PyTgCalls(aman,
+user = PyTgCalls(blaze,
     cache_duration=100,
     overload_quiet_mode=True,)
 
