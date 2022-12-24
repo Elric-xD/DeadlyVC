@@ -4,7 +4,7 @@ import asyncio
 from Deadly import bot, call_py
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
-from core.queues import QUEUE, clear_queue, get_queue, pop_an_item
+from .queues import QUEUE, clear_queue, get_queue, pop_an_item
 from pytgcalls.types.input_stream.quality import (
     HighQualityAudio,
     HighQualityVideo,
