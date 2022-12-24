@@ -63,6 +63,6 @@ with Client("Deadly", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
 with blaze as app:
     asid = app.get_me()
     ASSISTANT_ID = asid.id
-    ASSISTANT_NAME = asid.first_name + " " + assid.last_name
+    ASSISTANT_NAME = asid.first_name + " " + asid.last_name
     ASSISTANT_USERNAME = asid.username
    
