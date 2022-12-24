@@ -1,4 +1,4 @@
-
+uvloop
 tgcrypto
 asyncio
 ffmpeg-python
@@ -12,13 +12,11 @@ python-dotenv
 dnspython
 gitpython
 aiofiles
-telethon
 aiohttp
 aiogram<3.0
 requests
 pillow
 heroku3
-motor
 psutil
 future
 wget
