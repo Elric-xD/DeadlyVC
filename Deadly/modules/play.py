@@ -30,11 +30,7 @@ from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
 from Deadly.core.design.thumbnail import play_thumb, queue_thumb
 from Deadly.keyboard import stream_markup, audio_markup
-
-
-
-BOT_USERNAME = "DeadlyVCBot"
-IMG_1 = "https://te.legra.ph/file/fc9d4d0fa1296dc6e8638.jpg"
+from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5
 
 def ytsearch(query):
     try:
