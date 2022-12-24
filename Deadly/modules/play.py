@@ -229,7 +229,7 @@ async def play(c: Client, m: Message):
                                           ytlink,
                                           playimg,
                                video_parameters=MediumQualityVideo(),
-         .                  ),
+                            ),
                                stream_type=StreamType().local_stream,
                             )
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
