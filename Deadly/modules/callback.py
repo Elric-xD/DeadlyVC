@@ -51,16 +51,12 @@ Feel free to add me to your groups.
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""ℹ️ Command Menu
-🤷 » /id - To get user id
-👩🏻‍💼 » /tm - to get telegraph img link
-👩🏻‍💼 » /q - to get reply message in stickers
-👩🏻‍💼 » /speedtest - To get Speedtest 
 👩🏻‍💼 » /play - Type this with give the song title or youtube link or audio file to play Music. (Remember to don't play YouTube live stream by using this command!, because it will cause unforeseen problems.)
-👩🏻‍💼 » /vplay - Type this with give the song title or youtube link or video file to play Video. (Remember to don't play YouTube live video by using this command!, because it will cause unforeseen problems.)
-👩🏻‍💼 » /vstream - Type this with give the YouTube live stream video link or m3u8 link to play live Video. (Remember to don't play local audio/video files or non-live YouTube video by using this command!, because it will cause unforeseen problems.)
+🤷 » /pause - To pause the playing music
+👩🏻‍💼 » /resume - to resume the playing music
 🤷 » /skip - To Skip current song
-🤷 » /repo - To get the repo of RaiChu-Music
-🙋 » /end - To end play song in vc.""",
+🙋 » /end - To end play song in vc
+👩🏻‍💼 » /speedtest - To get Speedtest.""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")]]
         ),
