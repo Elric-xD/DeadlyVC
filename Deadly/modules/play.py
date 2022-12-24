@@ -10,13 +10,13 @@ import youtube_dl
 import youtube_dl
 import aiofiles
 import aiohttp
-from converter.converter import convert
+from Deadly.converter import convert
 import ffmpeg
 import requests
 from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
-from Deadly.tgcals.queues import QUEUE, add_to_queue
+from Deadly.core.queues import QUEUE, add_to_queue
 from Deadly import call_py, aman as user
 from Deadly.core.utils import bash
 from Deadly import bot as Client
@@ -27,7 +27,7 @@ from pytgcalls.types.input_stream import AudioImagePiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import MediumQualityVideo
 from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
-from Deadly.core.design.thumbnail import play_thumb, queue_thumb
+from Deadly.core.thumbnail import play_thumb, queue_thumb
 from Deadly.keyboard import stream_markup, audio_markup
 from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5
 
