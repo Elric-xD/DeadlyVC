@@ -46,17 +46,17 @@
         "GROUP_SUPPORT": {
             "description": "if you have group, then fill the group username here without @",
             "required": false,
-            "value": "godzilla_chatting"
+            "value": "thedeadlybots"
         },
         "UPDATES_CHANNEL": {
             "description": "if you have channel, then fill the channel username here without @",
             "required": false,
-            "value": "BotDuniyaXd"
+            "value": "thebotupdates"
         },
         "OWNER_NAME": {
             "description": "fill with your telegram account username without @",
             "required": false,
-            "value": "MeCorw"
+            "value": "elric-xD"
         }
     },
     "addons": [],
@@ -74,7 +74,7 @@
     "formation": {
         "worker": {
             "quantity": 1,
-            "size": "eco"
+            "size": "professional"
         }
     },
     "stack": "container"
