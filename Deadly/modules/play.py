@@ -17,7 +17,7 @@ from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
-from Deadly import call_py, aman as user
+from Deadly import call_py, blaze as user
 from Deadly.core.utils import bash
 from Deadly import bot as Client
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
