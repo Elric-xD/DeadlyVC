@@ -29,7 +29,7 @@ from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
 from Deadly.core.thumbnail import gen_thumb as play_thumb, gen_qthumb as queue_thumb
 from Deadly.core.keyboard import stream_markup, audio_markup
-from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5
+from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5, ASSISTANT_USERNAME
 
 def ytsearch(query):
     try:
@@ -95,7 +95,7 @@ async def play(c: Client, m: Message):
         b = await c.get_chat_member(chat_id, ubot)
         if b.status == "kicked":
             await m.reply_text(
-                f"@{ASSISTANT_NAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
+                f"@{ASSISTANT_USERNAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
             )
             return
     except UserNotParticipant:
