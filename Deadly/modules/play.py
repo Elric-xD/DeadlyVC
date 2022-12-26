@@ -227,7 +227,7 @@ async def play(c: Client, m: Message):
                                 chat_id,
                                 AudioImagePiped(
                                           ytlink,
-                                          thumbnail,
+                                          playimg,
                                video_parameters=MediumQualityVideo(),
                             ),
                                stream_type=StreamType().local_stream,
