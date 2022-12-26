@@ -37,11 +37,11 @@ alive_txt = f"""
 @app.on_message(filters.command("alive") & ~filters.edited)
 async def alive(client, m: Message):  
     await m.delete() 
-    sj = await message.reply_text("𝐂𝐫𝐞𝐚𝐭𝐢𝐧𝐠 𝐀𝐥𝐢𝐯𝐞 𝐌𝐞𝐬𝐬𝐚𝐠𝐞. . .")    
+    sj = await m.reply_text("𝐂𝐫𝐞𝐚𝐭𝐢𝐧𝐠 𝐀𝐥𝐢𝐯𝐞 𝐌𝐞𝐬𝐬𝐚𝐠𝐞. . .")    
     owner = "ELRIC-XD" #JUST FOR FUN
     await sj.delete() 
     msg = await app.send_photo(
-        chat_id=message.chat.id, 
+        chat_id=m.chat.id, 
         photo=ALIVE_PIC, 
         caption=alive_txt
     )
