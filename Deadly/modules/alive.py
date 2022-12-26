@@ -34,4 +34,4 @@ OWNER: {OWNER_NAME}
 
 @Client.on_message(command(["alive", f"alive@{BOT_USERNAME}"]) & other_filters)
 async def alive(client, message):  
-    await client.reply_photo(photo=ALIVE_PIC, caption=f{alive_txt})
+    await client.reply_photo(photo=ALIVE_PIC, caption=f"{alive_txt}")
