@@ -1,11 +1,13 @@
 import os
 from pyrogram import Client 
+from pyrogram.types import Message
+from pyrogram import filters
 from Deadly import(
  BOT_NAME, OWNER_NAME,
  ASSISTANT_ID, ASSISTANT_USERNAME,
  ASSISTANT_NAME, BOT_NAME, BOT_USERNAME
 ) 
-from Deadly import bot
+from Deadly import bot as app
 
 
 ALIVE_PIC = "https://te.legra.ph/file/404503e13fac593ada12d.jpg"
@@ -32,6 +34,6 @@ OWNER: {OWNER_NAME}
 ──────────────────
 """
 
-@Client.on_message(command(["alive", f"alive@{BOT_USERNAME}"]) & other_filters)
+@app.on_message(filters.command("alive") & ~filters.edited)
 async def alive(client, message):  
     await client.reply_photo(photo=ALIVE_PIC, caption=f"{alive_txt}")
