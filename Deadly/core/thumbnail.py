@@ -10,7 +10,7 @@ import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
 
-from config import YOUTUBE_IMG_URL
+from Deadly import YOUTUBE_IMG_URL
 from Deadly import bot as app
 
 
