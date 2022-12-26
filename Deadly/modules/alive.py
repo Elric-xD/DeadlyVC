@@ -16,21 +16,21 @@ alive_txt = f"""
 
 ๏ 𝐃𝐞𝐚𝐝𝐥𝐲 𝐌𝐮𝐬𝐢𝐜 𝐁𝐨𝐭 ๏
 
-๏ Your @{BOT_USERNAME} is Online
+๏ 𝐘𝐨𝐮𝐫 @{BOT_USERNAME} 𝐢𝐬 𝐎𝐧𝐥𝐢𝐧𝐞 🔥
 
 ──────────────────
-ASSISTANT DETAILS: 
+𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧 𝗗𝗘𝗧𝗔𝗜𝗟𝗦: 
 
-ID: {ASSISTANT_ID}
-NAME: {ASSISTANT_NAME}
-USERNAME: @{ASSISTANT_USERNAME}
+𝐈𝐃: {ASSISTANT_ID}
+𝐍𝐀𝐌𝐄: {ASSISTANT_NAME}
+𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄: @{ASSISTANT_USERNAME}
 ──────────────────
-BOT DETAILS:
-NAME: {BOT_NAME}
-USERNAME: @{BOT_USERNAME}
+𝗕𝗢𝗧 𝗗𝗘𝗧𝗔𝗜𝗟𝗦:
+𝐍𝐀𝐌𝐄: {BOT_NAME}
+𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄: @{BOT_USERNAME}
 
 ──────────────────
-OWNER: {OWNER_NAME}
+𝐎𝐖𝐍𝐄𝐑: {OWNER_NAME}
 ──────────────────
 """
 
