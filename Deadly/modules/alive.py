@@ -36,7 +36,7 @@ OWNER: {OWNER_NAME}
 
 @app.on_message(filters.command("alive") & ~filters.edited)
 async def alive(client, message):  
-    m = await app.reply_text("**Hold On. . . **") 
+    m = await message.reply_text("**Hold On. . . **") 
     msg = await app.send_photo(
         chat_id=message.chat.id, 
         photo=ALIVE_PIC, 
