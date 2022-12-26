@@ -1,5 +1,5 @@
 import os
-from program import Client 
+from pyrogram import Client 
 from Deadly import(
  BOT_NAME, OWNER_NAME,
  ASSISTANT_ID, ASSISTANT_USERNAME,
