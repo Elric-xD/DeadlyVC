@@ -27,7 +27,7 @@ from pytgcalls.types.input_stream import AudioImagePiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import MediumQualityVideo
 from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
-from Deadly.core.thumbnail import play_thumb, queue_thumb
+from Deadly.core.thumbnail import gen_thumb as play_thumb, gen_qthumb as queue_thumb
 from Deadly.core.keyboard import stream_markup, audio_markup
 from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5
 
