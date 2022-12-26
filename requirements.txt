@@ -1,5 +1,5 @@
 numpy
-9uvloop
+uvloop
 tgcrypto
 asyncio
 ffmpeg-python
