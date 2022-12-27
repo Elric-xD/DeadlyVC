@@ -173,7 +173,8 @@ async def play(c: Client, m: Message):
                         [
                             InlineKeyboardButton("Support🌐", url=f"https://t.me/TheDeadlyBots"),
                             InlineKeyboardButton("Channel🛰", url=f"https://t.me/TheBotUpdates"),
-                            
+                        ], 
+                        [                            
                             InlineKeyboardButton("Close🗑", callback_data="cls")
                         ]
                     ]
