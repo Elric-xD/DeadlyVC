@@ -166,20 +166,22 @@ async def play(c: Client, m: Message):
     else:
         if len(m.command) < 2:
          await m.reply_photo(
-                     photo=f"{IMG_1}",
-                    caption="**Usage: /play Give a Title Song To Play Music or /vplay for Video Play**",
+                     photo="https://te.legra.ph/file/ffe011a199e84c329d265.jpg",
+                    caption="Usage: /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Music you need to Add bot as Admin.",
                       reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("• Support", url=f"https://t.me/TheDeadlyBots"),
-                            InlineKeyboardButton("• Close", callback_data="cls")
+                            InlineKeyboardButton("Support🌐", url=f"https://t.me/TheDeadlyBots"),
+                            InlineKeyboardButton("Channel🛰", url=f"https://t.me/TheBotUpdates"),
+                            
+                            InlineKeyboardButton("Close🗑", callback_data="cls")
                         ]
                     ]
                 )
             )
         else:
             suhu = await m.reply_text(
-        f"**Processing. . .**"
+        f"**🔄 Processing Query... Please Wait!**"
     )
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
@@ -199,9 +201,6 @@ async def play(c: Client, m: Message):
                 keyboard = stream_markup(user_id, dlurl)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
-                await suhu.edit(
-                            f"**Downloading Music**\n\n**Title**: {title[:22]}"
-                        )
                 format = "bestaudio"
                 abhi, ytlink = await ytdl(format, url)
                 if abhi == 0:
