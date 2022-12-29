@@ -250,4 +250,4 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["status", f"status@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    await message.reply_text(f"Current seconds {await call_py.played_time(message.chat.id)})
+    await message.reply_text(f"Current seconds {await call_py.played_time(message.chat.id)}")
