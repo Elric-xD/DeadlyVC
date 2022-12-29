@@ -112,7 +112,7 @@ async def stream_end_handler(_, u: Update):
         print(chat_id)
         op = await skip_current_song(chat_id)
         if op==1:
-           await bot.send_message(chat_id, "**๏ No more request found**\n**๏ Leaving Voice Chat. . .**")
+           await bot.send_message(chat_id, "Assistant left voice chat as no more queue or request found.")
         elif op==2:
            await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
         else:
