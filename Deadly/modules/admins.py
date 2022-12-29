@@ -96,11 +96,13 @@ async def skip(client, m: Message):
 @authorized_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
+    user_id = m.from_user.id
+    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
     if chat_id in QUEUE:
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await m.reply("✅ The userbot has disconnected from the video chat.")
+            await m.reply(f"🎧 Voicechat Ended by {requester}!")
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
