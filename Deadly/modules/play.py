@@ -252,3 +252,11 @@ async def get_play_status(client: Client, message: Message):
     await message.delete()
     bc = call_py.get_max_voice_chat()
     await message.reply_text(f"Max VoiceChat Allowed: {bc}")
+
+# PARTICIPANT LIST
+
+@Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
+async def get_play_status(client: Client, message: Message):
+    await message.delete()
+    bc = call_py.get_participants(message.chat.id)
+    await message.reply_text(f"Participant List: {bc}")
