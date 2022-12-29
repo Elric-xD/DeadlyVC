@@ -104,7 +104,7 @@ async def stop(client, m: Message):
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing is streaming**")
+        await m.reply("Bot isn't streaming on voice chat.")
 
 
 @Client.on_message(
@@ -124,7 +124,7 @@ async def pause(client, m: Message):
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing in streaming**")
+        await m.reply("Bot isn't streaming on voice chat.")
 
 
 @Client.on_message(
@@ -144,7 +144,7 @@ async def resume(client, m: Message):
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing in streaming**")
+        await m.reply("Bot isn't streaming on voice chat.")
 
 
 @Client.on_message(
@@ -153,16 +153,18 @@ async def resume(client, m: Message):
 @authorized_users_only
 async def mute(client, m: Message):
     chat_id = m.chat.id
+    user_id = m.from_user.id
+    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
     if chat_id in QUEUE:
         try:
             await call_py.mute_stream(chat_id)
             await m.reply(
-                "🔇 **Userbot muted.**\n\n• **To unmute the userbot, use the**\n» /unmute command."
+                f"🎧 Voicechat Muted by {requester}!"
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing in streaming**")
+        await m.reply("Bot isn't streaming on voice chat.")
 
 
 @Client.on_message(
@@ -171,16 +173,18 @@ async def mute(client, m: Message):
 @authorized_users_only
 async def unmute(client, m: Message):
     chat_id = m.chat.id
+    user_id = m.from_user.id
+    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
     if chat_id in QUEUE:
         try:
             await call_py.unmute_stream(chat_id)
             await m.reply(
-                "🔊 **Userbot unmuted.**\n\n• **To mute the userbot, use the**\n» /mute command."
+                f"🎧 Voicechat Unmuted by {requester}!"
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing in streaming**")
+        await m.reply("Bot isn't streaming on voice chat.")
 
 
 @Client.on_callback_query(filters.regex("cbpause"))
