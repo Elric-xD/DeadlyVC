@@ -7,7 +7,7 @@ from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram import filters, Client
-from Deadly import BOT_USERNAME
+from Deadly import BOT_USERNAME, blaze
 from Deadly.core.filters import command, other_filters
 from Deadly.core.decorators import authorized_users_only
 from pyrogram.types import (
@@ -27,9 +27,9 @@ async def createcall(client, message):
     else:
         chat_id = message.chat.id
     try:
-        await client.send(
+        await blaze.send(
             CreateGroupCall(
-                peer=(await client.resolve_peer(chat_id)),
+                peer=(await blaze.resolve_peer(chat_id)),
                 random_id=randint(10000, 999999999),
             )
         )
