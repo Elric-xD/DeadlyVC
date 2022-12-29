@@ -17,7 +17,8 @@ from pyrogram.types import (
 
 @Client.on_message(command([f"startvc@{BOT_USERNAME}", "startvc"]) & other_filters)
 @authorized_users_only
-async def startvc(client, m: Message):async def createcall(client, message):
+async def createcall(client, message):
+    await message.delete() 
     flags = " ".join(message.command[1:])
     semx = await message.reply_text("`Processing...`")
     if flags == "channel":
