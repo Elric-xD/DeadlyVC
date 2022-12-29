@@ -216,7 +216,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=queueimg,
-                            caption=f"⏳ Added to Queue at {pos}\n\n💡Title: {title}\n\n⏱Duration: {duration}\n\n👤Added By: {requester}",
+                            caption=f"⏳ Added to Queue at **#{pos}**\n\n💡Title: {title}\n\n⏱Duration: {duration}\n\n👤Added By: {requester}",
                             reply_markup=InlineKeyboardMarkup(keyboard),
                         )
                     else:
