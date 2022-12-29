@@ -250,5 +250,5 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    bc = await call_py.get_max_voice_chat()
+    bc = call_py.get_max_voice_chat()
     await message.reply_text(f"Max VoiceChat Allowed: {bc}")
