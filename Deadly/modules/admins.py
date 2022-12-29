@@ -134,7 +134,8 @@ async def pause(client, m: Message):
 async def resume(client, m: Message):
     chat_id = m.chat.id
     user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"    if chat_id in QUEUE:
+    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    if chat_id in QUEUE:
         try:
             await call_py.resume_stream(chat_id)
             await m.reply(
