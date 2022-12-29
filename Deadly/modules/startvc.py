@@ -8,6 +8,7 @@ from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram import filters, Client
 from Deadly import BOT_USERNAME
+from Deadly.core.filters import command, other_filters
 from Deadly.core.decorators import authorized_users_only
 from pyrogram.types import (
     CallbackQuery,
