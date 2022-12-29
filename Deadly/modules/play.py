@@ -221,9 +221,6 @@ async def play(c: Client, m: Message):
                         )
                     else:
                         try:
-                            await suhu.edit(
-                            f"**Download Complete**\n\n**Title**: {title[:22]}\n\n**Processing to vc. . .**"
-                        )
                             await call_py.join_group_call(
                                 chat_id,
                                 AudioImagePiped(
@@ -238,7 +235,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=playimg,
-                                caption=f"📡 Started Streaming Audio 💡\n\n👤Requested By:{requester}\nInformation- [Here]({info})",
+                                caption=f"📡 Started Streaming 💡\n\n💡Title: {title}\n\n⏱Duration: {duration}\n\n👤Added By: {requester}"",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
