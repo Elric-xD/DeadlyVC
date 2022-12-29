@@ -22,6 +22,7 @@ from Deadly.core.utils import bash
 from Deadly import bot as Client
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pytgcalls.types import Update
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioImagePiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import MediumQualityVideo
@@ -243,3 +244,10 @@ async def play(c: Client, m: Message):
                         except Exception as ep:
                             await suhu.delete()
                             await m.reply_text(f"💬 error: `{ep}`")
+
+# STATUS CHECK
+
+@Client.on_message(command(["status", f"status@{BOT_USERNAME}"]) & other_filters)
+async def get_play_status(client: Client, message: Message):
+    await message.delete()
+    await message.reply_text(f"Current seconds {await call_py.played_time(message.chat.id)})
