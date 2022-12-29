@@ -1,5 +1,23 @@
-"""
-async def createcall(client, message):
+from asyncio import sleep
+from contextlib import suppress
+from random import randint
+from typing import Optional
+from pyrogram.raw.functions.channels import GetFullChannel
+from pyrogram.raw.functions.messages import GetFullChat
+from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
+from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
+from pyrogram import filters, Client
+from Deadly import BOT_USERNAME
+from Deadly.core.decorators import authorized_users_only
+from pyrogram.types import (
+    CallbackQuery,
+    Message,
+)
+
+
+@Client.on_message(command([f"startvc@{BOT_USERNAME}", "startvc"]) & other_filters)
+@authorized_users_only
+async def startvc(client, m: Message):async def createcall(client, message):
     flags = " ".join(message.command[1:])
     semx = await message.reply_text("`Processing...`")
     if flags == "channel":
@@ -17,4 +35,6 @@ async def createcall(client, message):
     except Exception as e:
         await semx.edit(f"**INFO:** `{e}`")
 
+"""
+From program docs
 """
