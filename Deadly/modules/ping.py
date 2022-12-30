@@ -32,7 +32,7 @@ async def pingm(client, message: Message):
         caption="**Pinging. . . **"
     )
     start = datetime.now()
-    pytgping = await Yukki.ping()
+    pytgping = await Akki.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(f"{BOT_NAME} ɪs ᴡᴏʀᴋɪɴɢ ɢᴏᴏᴅ ᴡɪᴛʜ ᴀ ᴘɪɴɢ ᴏғ  {resp}ᴍs.\n\nʙᴏᴛ's ᴜᴘᴛɪᴍᴇ: {UP}\n\nᴛᴏᴛᴀʟ ᴏғ  {DISK} sᴇʀᴠᴇʀ's sᴛᴏʀᴀɢᴇ.\n\nᴄᴘᴜ ʟᴏᴀᴅ ɪs ᴀʙᴏᴜᴛ {CPU} \n\nᴡɪᴛʜ ᴀ ᴄᴏɴsᴜᴍᴘᴛɪᴏɴ ᴏғ {RAM} ʀᴀᴍ. \nᴘʏ-ᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ ʜᴀᴠɪɴɢ ᴘɪɴɢ ᴏғ {pytgping} ᴍs.")
