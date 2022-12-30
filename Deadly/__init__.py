@@ -1,8 +1,11 @@
+import time
 import os
 from os import getenv
 from dotenv import load_dotenv
 from pyrogram import Client
 from pytgcalls import PyTgCalls, idle
+
+_boot_ = time.time()
 
 """ config area """
 
