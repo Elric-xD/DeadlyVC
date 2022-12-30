@@ -25,7 +25,7 @@ async def bot_sys_stats():
 # run
 
 
-@app.on_message(filters.command("speedtest") & ~filters.edited)
+@app.on_message(filters.command("ping") & ~filters.edited)
 async def ping_com(client, message: Message, _):
     response = await message.reply_photo(
         photo=PING_URL,
