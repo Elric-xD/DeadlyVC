@@ -26,7 +26,7 @@ async def bot_sys_stats():
 
 
 @app.on_message(filters.command("ping") & ~filters.edited)
-async def ping_com(client, message: Message, _):
+async def pingm(client, message: Message):
     response = await message.reply_photo(
         photo=PING_URL,
         caption="**Pinging. . . **"
