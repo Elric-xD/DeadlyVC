@@ -27,6 +27,7 @@ async def bot_sys_stats():
 
 @app.on_message(filters.command("ping") & ~filters.edited)
 async def pingm(client, message: Message):
+    await message.delete() 
     response = await message.reply_photo(
         photo=PING_URL,
         caption="**Pinging. . . **"
