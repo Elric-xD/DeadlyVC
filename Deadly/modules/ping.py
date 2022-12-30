@@ -6,7 +6,6 @@ from pyrogram import filters
 from pyrogram.types import Message
 from Deadly import BOT_NAME, PING_URL
 from Deadly import bot as app, _boot_
-from strings import get_command
 from Deadly import bot as app
 from Deadly import call_py as Akki
 from Deadly.core.Cache.format import get_readable_time
