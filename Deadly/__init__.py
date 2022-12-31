@@ -16,24 +16,22 @@ load_dotenv()
 admins = {}
 
 #REQUIRED
-SESSION_NAME = getenv("SESSION_NAME", "")
-BOT_TOKEN = getenv("BOT_TOKEN")
 API_ID = int(getenv("API_ID", "8186557"))
 API_HASH = getenv("API_HASH", "efd77b34c69c164ce158037ff5a0d117")
-OWNER_NAME = getenv("OWNER_NAME", "Elric_xD")
-DB_URL = getenv("DB_URL", "mongodb+srv://blaze09:Blaze0786@cluster0.ihdjovn.mongodb.net/?retryWrites=true&w=majority") 
-
-ALIVE_NAME = getenv("ALIVE_NAME", "DeadlyVC")
+BOT_TOKEN = getenv("BOT_TOKEN")
+SESSION_NAME = getenv("SESSION_NAME", None)
+OWNER_NAME = getenv("OWNER_NAME", None)
+DB_URL = getenv("DB_URL", None) 
+ALIVE_NAME = getenv("ALIVE_NAME", None)
 
 #SUPPPORT LIST
-GROUP_SUPPORT = getenv("GROUP_SUPPORT")
-UPDATES_CHANNEL = getenv("UPDATES_CHANNEL")
+GROUP_SUPPORT = getenv("GROUP_SUPPORT", None)
+UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", None)
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 
 
 #EXTRA
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
-ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.png")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "300"))
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/AMANTYA1/RaiChu-MusicV2")
 
@@ -45,6 +43,7 @@ IMG_3 = getenv("IMG_3", "https://telegra.ph/file/f02efde766160d3ff52d6.png")
 IMG_4 = getenv("IMG_4", "https://telegra.ph/file/be5f551acb116292d15ec.png")
 IMG_5 = getenv("IMG_5", "https://telegra.ph/file/c3401a572375b569138c3.png")
 IMG_6 = getenv("IMG_6", "https://telegra.ph/file/d8f8fc1de9110b93ca94c.jpg")
+ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.png")
 YOUTUBE_IMG_URL = getenv("YOUTUBE_IMG_URL", "https://telegra.ph/file/58da23d726b601dc3b18e.jpg")
 PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.jpg") 
 
