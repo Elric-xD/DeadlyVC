@@ -5,7 +5,7 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
 
-from Deadly import BOT_NAME, bot as app
+from Deadly import BOT_NAME, bot as app, LOG_ID
 loop = asyncio.get_running_loop()
 
 
@@ -46,7 +46,7 @@ async def start_comm(client, message: Message):
                             text="🎥 Watch ", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="🔄 Close", callback_data="cls"
                         ),
                     ],
                 ]
