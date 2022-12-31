@@ -76,43 +76,43 @@ bot = Client(
 if not STRING1:
    ASSISTANT_1 = None
 else: 
-   STRING1 = SESSION_NAME  
+   SESSION_NAME = STRING1  
    ASSISTANT_1 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
    
 if not STRING2:
    ASSISTANT_2 = None
 else:   
-   STRING2 = SESSION_NAME
+   SESSION_NAME = STRING2
    ASSISTANT_2 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 if not STRING3:
    ASSISTANT_3 = None
 else:
-   STRING3 = SESSION_NAME  
+   SESSION_NAME = STRING3
    ASSISTANT_3 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 if not STRING4:
    ASSISTANT_4 = None
 else: 
-   STRING4 = SESSION_NAME  
+   SESSION_NAME = STRING4
    ASSISTANT_4 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 if not STRING5:
    ASSISTANT_5 = None
 else:   
-   STRING5 = SESSION_NAME
+   SESSION_NAME = STRING5
    ASSISTANT_5 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 if not STRING6:
    ASSISTANT_6 = None
 else:   
-   STRING6 = SESSION_NAME
+   SESSION_NAME = STRING6
    ASSISTANT_6 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
    
 if not STRING7:
    ASSISTANT_7 = None
 else:   
-   STRING7 = SESSION_NAME
+   SESSION_NAME = STRING7
    ASSISTANT_7 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 
