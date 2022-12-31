@@ -19,6 +19,8 @@ admins = {}
 API_ID = int(getenv("API_ID", "8186557"))
 API_HASH = getenv("API_HASH", "efd77b34c69c164ce158037ff5a0d117")
 BOT_TOKEN = getenv("BOT_TOKEN")
+LOG_ID = int(getenv("LOG_ID")) 
+
 SESSION_NAME = getenv("SESSION_NAME", None)
 OWNER_NAME = getenv("OWNER_NAME", None)
 DB_URL = getenv("DB_URL", None) 
