@@ -18,6 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
 from Deadly import call_py, blaze as user
+from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import bot as Client
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
@@ -230,6 +231,7 @@ async def play(c: Client, m: Message):
                             ),
                                stream_type=StreamType().local_stream,
                             )
+                            await add_active_chat(chat_id)
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await suhu.delete()
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
