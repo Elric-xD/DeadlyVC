@@ -120,16 +120,14 @@ else:
 
 
 
-load = ASSISTANT_1
-ASSISTANT_2 = user
 
-call_py = PyTgCalls(ASSISTANT_1)
-call_py2 = PyTgCalls(ASSISTANT_2)
-call_py3 = PyTgCalls(ASSISTANT_3)
-call_py4 = PyTgCalls(ASSISTANT_4)
-call_py5 = PyTgCalls(ASSISTANT_5)
-call_py6 = PyTgCalls(ASSISTANT_6)
-call_py7 = PyTgCalls(ASSISTANT_7)
+call_py = PyTgCalls(ASSISTANT_1, overload_quiet_mode=True)
+call_py2 = PyTgCalls(ASSISTANT_2, overload_quiet_mode=True)
+call_py3 = PyTgCalls(ASSISTANT_3, overload_quiet_mode=True)
+call_py4 = PyTgCalls(ASSISTANT_4, overload_quiet_mode=True)
+call_py5 = PyTgCalls(ASSISTANT_5, overload_quiet_mode=True)
+call_py6 = PyTgCalls(ASSISTANT_6, overload_quiet_mode=True)
+call_py7 = PyTgCalls(ASSISTANT_7, overload_quiet_mode=True)
 
 
 ASS_IDS = []
