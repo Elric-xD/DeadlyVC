@@ -1,12 +1,10 @@
+
 import time
 import os
 from os import getenv
 from dotenv import load_dotenv
 from pyrogram import Client
 from pytgcalls import PyTgCalls, idle
-from Deadly.core.calls.userbot import Userbot 
-
-userbot = Userbot()
 
 _boot_ = time.time()
 
@@ -66,7 +64,7 @@ PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.j
 
 
 """ client area """
-#BOT CLIENT 
+
 bot = Client(
     "Freya",
     API_ID,
@@ -76,9 +74,95 @@ bot = Client(
     )
 
 
+if not STRING1:
+   ASSISTANT_1 = None
+else:   
+   ASSISTANT_1 = Client(STRING1, api_id=API_ID, api_hash=API_HASH)
+   
+if not STRING2:
+   user = None
+else:   
+   user = Client(STRING2, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING3:
+   ASSISTANT_3 = None
+else:
+   ASSISTANT_3 = Client(STRING3, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING4:
+   ASSISTANT_4 = None
+else: 
+   ASSISTANT_4 = Client(STRING4, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING5:
+   ASSISTANT_5 = None
+else:   
+   ASSISTANT_5 = Client(STRING5, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING6:
+   ASSISTANT_6 = None
+else:   
+   ASSISTANT_6 = Client(STRING6, api_id=API_ID, api_hash=API_HASH)
+   
+if not STRING7:
+   ASSISTANT_7 = None
+else:   
+   ASSISTANT_7 = Client(STRING7, api_id=API_ID, api_hash=API_HASH)
+
+
+
+
+
+load = ASSISTANT_1
+ASSISTANT_2 = user
+
+call_py1 = PyTgCalls(ASSISTANT_1)
+call_py2 = PyTgCalls(ASSISTANT_2)
+call_py3 = PyTgCalls(ASSISTANT_3)
+call_py4 = PyTgCalls(ASSISTANT_4)
+call_py5 = PyTgCalls(ASSISTANT_5)
+call_py6 = PyTgCalls(ASSISTANT_6)
+call_py7 = PyTgCalls(ASSISTANT_7)
+
+
+ASS_IDS = []
+ASS_ID1 = 0
+ASS_NAME1 = ""
+ASS_USERNAME1 = ""
+ASS_MENTION1 = ""
+ASS_ID2 = 0
+ASS_NAME2 = ""
+ASS_USERNAME2 = ""
+ASS_MENTION2 = ""
+ASS_ID3 = 0
+ASS_NAME3 = ""
+ASS_USERNAME3 = ""
+ASS_MENTION3 = ""
+ASS_ID4 = 0
+ASS_NAME4 = ""
+ASS_USERNAME4 = ""
+ASS_MENTION4 = ""
+ASS_ID5 = 0
+ASS_NAME5 = ""
+ASS_USERNAME5 = ""
+ASS_MENTION5 = ""
+ASS_ID6 = 0
+ASS_NAME6 = ""
+ASS_USERNAME6 = ""
+ASS_MENTION6 = ""
+ASS_ID7 = 0
+ASS_NAME7 = ""
+ASS_USERNAME7 = ""
+ASS_MENTION7 = ""
+MULTI_ASSISTANT = []
+
+
+
+
+
+
+
 with Client("Freya", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
     Freya = Freya.get_me()
     BOT_NAME = Freya.first_name
     BOT_USERNAME = Freya.username
-
-
