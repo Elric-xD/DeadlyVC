@@ -116,7 +116,7 @@ else:
 load = ASSISTANT_1
 ASSISTANT_2 = user
 
-call_py1 = PyTgCalls(ASSISTANT_1)
+call_py = PyTgCalls(ASSISTANT_1)
 call_py2 = PyTgCalls(ASSISTANT_2)
 call_py3 = PyTgCalls(ASSISTANT_3)
 call_py4 = PyTgCalls(ASSISTANT_4)
