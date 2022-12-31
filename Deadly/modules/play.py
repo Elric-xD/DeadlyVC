@@ -202,7 +202,7 @@ async def play(c: Client, m: Message):
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
                 info = f"https://t.me/{BOT_USERNAME}?start=info_{videoid}"
-                keyboard = stream_markup(user_id, dlurl)
+                keyboard = stream_markup(user_id, dlurl, info)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
                 format = "bestaudio"
