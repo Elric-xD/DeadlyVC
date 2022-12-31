@@ -1,4 +1,5 @@
 
+
 import io
 from os import path
 from typing import Callable
@@ -17,11 +18,12 @@ from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
-from Deadly.calls import Freya
+from Deadly import call_py1, call_py2, call_py3, call_py4, call_py5, call_py6, call_py7
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import bot as Client
-from Deadly.assinvite import InviteAssistant
+from Deadly.database.assistantdb import * 
+from Deadly.assistant import get_assistant_details, MULTI_ASSISTANT
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
@@ -62,7 +64,6 @@ ACTV_CALLS = []
 
     
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
-@InviteAssistant
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -94,6 +95,37 @@ async def play(c: Client, m: Message):
     if not a.can_invite_users:
         await m.reply_text("Missing required permission:" + "\n\n» ❌ __Add users__")
         return
+    try:
+        ubot = (await user.get_me()).id
+        b = await c.get_chat_member(chat_id, ubot)
+        if b.status == "banned" or b.status == "kicked":
+            await m.reply_text(
+                f"@{ASSISTANT_USERNAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
+            )
+            return
+    except UserNotParticipant:
+        if m.chat.username:
+            try:
+                await user.join_chat(m.chat.username)
+            except Exception as e:
+                await m.reply_text(f"❌ **Userbot failed to join**\n\n**reason**: `{e}`")
+                return
+        else:
+            try:
+                invitelink = await c.export_chat_invite_link(
+                    m.chat.id
+                )
+                if invitelink.startswith("https://t.me/+"):
+                    invitelink = invitelink.replace(
+                        "https://t.me/+", "https://t.me/joinchat/"
+                    )
+                await user.join_chat(invitelink)
+            except UserAlreadyParticipant:
+                pass
+            except Exception as e:
+                return await m.reply_text(
+                    f"❌ **userbot failed to join**\n\n**reason**: `{e}`"
+                )
     if replied:
         if replied.audio or replied.voice:
             suhu = await replied.reply("📥 **Downloading audio...**")
@@ -118,13 +150,62 @@ async def play(c: Client, m: Message):
                 )
             else:
              try:
-                await Freya.join_group_call(
-                    chat_id,
-                    AudioPiped(
-                        dl,
-                    ),
-                    stream_type=StreamType().local_stream,
-                )
+                if int(assistant) == 1:
+                   await call_py1.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 2:
+                   await call_py2.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 3:
+                   await call_py3.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 4:
+                   await call_py4.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 5:
+                   await call_py5.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 6:
+                   await call_py6.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                 if int(assistant) == 7:
+                   await call_py7.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -193,14 +274,69 @@ async def play(c: Client, m: Message):
                         )
                     else:
                         try:
-                            await Freya.join_group_call(
-                                 chat_id,
-                                 AudioImagePiped(
-                                     ytlink,
-                                     playimg, 
-                                 ),
-                                 stream_type=StreamType().local_stream,
-                            )                          
+                            if int(assistant) == 1:
+                               await call_py1.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 2:
+                               await call_py2.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 3:
+                               await call_py3.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 4:
+                               await call_py4.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 5:
+                               await call_py5.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 6:
+                               await call_py6.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 7:
+                               await call_py7.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )                          
                             await add_active_chat(chat_id)
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await suhu.delete()
@@ -219,8 +355,15 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    a = Freya.get_max_voice_chat()                
-    await message.reply_text(f"Max VoiceChat Allowed:\n\nASSISTANT 1: {a}")
+    a = call_py1.get_max_voice_chat()
+    b = call_py2.get_max_voice_chat()
+    c = call_py3.get_max_voice_chat()
+    d = call_py4.get_max_voice_chat()
+    e = call_py5.get_max_voice_chat()
+    f = call_py6.get_max_voice_chat()
+    g = call_py7.get_max_voice_chat()
+            
+    await message.reply_text(f"Max VoiceChat Allowed:\n\nASSISTANT 1: {a}\nASSISTANT 2: {b}\nASSISTANT 3: {c}\nASSISTANT 4: {d}\nASSISTANT 5: {e}\nASSISTANT 6: {f}\nASSISTANT 7: {g}")
 
 # PARTICIPANT LIST
 
