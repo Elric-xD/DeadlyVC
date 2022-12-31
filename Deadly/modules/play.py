@@ -18,7 +18,7 @@ from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
-from Deadly import call_py1, call_py2, call_py3, call_py4, call_py5, call_py6, call_py7
+from Deadly import call_py, call_py2, call_py3, call_py4, call_py5, call_py6, call_py7
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import bot as Client
@@ -151,7 +151,7 @@ async def play(c: Client, m: Message):
             else:
              try:
                 if int(assistant) == 1:
-                   await call_py1.join_group_call(
+                   await call_py.join_group_call(
                        chat_id,
                        AudioPiped(
                            dl,
@@ -275,7 +275,7 @@ async def play(c: Client, m: Message):
                     else:
                         try:
                             if int(assistant) == 1:
-                               await call_py1.join_group_call(
+                               await call_py.join_group_call(
                                    chat_id,
                                    AudioImagePiped(
                                        ytlink,
