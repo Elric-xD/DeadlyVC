@@ -18,12 +18,10 @@ from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
-from Deadly import call_py, call_py2, call_py3
+from Deadly import call_py, blaze as user
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import bot as Client
-from Deadly.database.assistantdb import * 
-from Deadly.assistant import get_assistant_details, MULTI_ASSISTANT
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
@@ -98,7 +96,7 @@ async def play(c: Client, m: Message):
     try:
         ubot = (await user.get_me()).id
         b = await c.get_chat_member(chat_id, ubot)
-        if b.status == "banned" or b.status == "kicked":
+        if b.status == "kicked":
             await m.reply_text(
                 f"@{ASSISTANT_USERNAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
             )
@@ -150,30 +148,13 @@ async def play(c: Client, m: Message):
                 )
             else:
              try:
-                if int(assistant) == 1:
-                   await call_py.join_group_call(
-                       chat_id,
-                       AudioPiped(
-                           dl,
-                       ),
-                       stream_type=StreamType().local_stream,
-                   )
-                if int(assistant) == 2:
-                   await call_py2.join_group_call(
-                       chat_id,
-                       AudioPiped(
-                           dl,
-                       ),
-                       stream_type=StreamType().local_stream,
-                   )
-                if int(assistant) == 3:
-                   await call_py3.join_group_call(
-                       chat_id,
-                       AudioPiped(
-                           dl,
-                       ),
-                       stream_type=StreamType().local_stream,
-                   )
+                await call_py.join_group_call(
+                    chat_id,
+                    AudioPiped(
+                        dl,
+                    ),
+                    stream_type=StreamType().local_stream,
+                )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -242,33 +223,15 @@ async def play(c: Client, m: Message):
                         )
                     else:
                         try:
-                            if int(assistant) == 1:
-                               await call_py.join_group_call(
-                                   chat_id,
-                                   AudioImagePiped(
-                                       ytlink,
-                                       playimg, 
-                                   ),
-                                   stream_type=StreamType().local_stream,
-                               )
-                            if int(assistant) == 2:
-                               await call_py2.join_group_call(
-                                   chat_id,
-                                   AudioImagePiped(
-                                       ytlink,
-                                       playimg, 
-                                   ),
-                                   stream_type=StreamType().local_stream,
-                               )
-                            if int(assistant) == 3:
-                               await call_py3.join_group_call(
-                                   chat_id,
-                                   AudioImagePiped(
-                                       ytlink,
-                                       playimg, 
-                                   ),
-                                   stream_type=StreamType().local_stream,
-                               )                          
+                            await call_py.join_group_call(
+                                chat_id,
+                                AudioImagePiped(
+                                          ytlink,
+                                          playimg,
+                               video_parameters=MediumQualityVideo(),
+                            ),
+                               stream_type=StreamType().local_stream,
+                            )
                             await add_active_chat(chat_id)
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await suhu.delete()
@@ -287,11 +250,13 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    a = call_py.get_max_voice_chat()
-    b = call_py2.get_max_voice_chat()
-    c = call_py3.get_max_voice_chat()
-            
-    await message.reply_text(f"Max VoiceChat Allowed:\n\nASSISTANT 1: {a}\nASSISTANT 2: {b}\nASSISTANT 3: {c}")
+    bc = call_py.get_max_voice_chat()
+    await message.reply_text(f"Max VoiceChat Allowed: {bc}")
 
 # PARTICIPANT LIST
 
+@Client.on_message(command(["vclist", f"vclist@{BOT_USERNAME}"]) & other_filters)
+async def get_user_status(client: Client, message: Message):
+    await message.delete()
+    bc = await call_py.get_participants(message.chat.id)
+    await message.reply_text(f"**Participant List:**\n {bc}")
