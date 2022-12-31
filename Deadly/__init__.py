@@ -92,9 +92,23 @@ with Client(":musicfreya:", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
 
 LODER = ASSISTANT_1
 ASSISTANT_2 = user
-call_py = PyTgCalls(ASSISTANT_1)
-call_py2 = PyTgCalls(user)
-call_py3 = PyTgCalls(user3)
+
+if not SESSION1:
+   call_py = None
+else:   
+   call_py = PyTgCalls(ASSISTANT_1)
+
+if not SESSION2:
+   user = None
+else:
+   call_py2 = PyTgCalls(user)
+
+if not SESSION3:
+   user3 = None
+else:
+   call_py3 = PyTgCalls(user3)
+
+
 
 ASSIDS = []
 ASSID1 = 0
