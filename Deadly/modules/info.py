@@ -10,7 +10,7 @@ loop = asyncio.get_running_loop()
 
 
 @app.on_message(filters.command("start") & filters.private & ~filters.edited)
-async def start_comm(client, message: Message, _):
+async def start_comm(client, message: Message):
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:3] == "inf":
