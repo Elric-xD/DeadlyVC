@@ -17,10 +17,12 @@ from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, add_to_queue
-from Deadly import call_py, blaze as user
+from Deadly import call_py1, call_py2, call_py3, call_py4, call_py5, call_py6, call_py7
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import bot as Client
+from Deadly.database.assistantdb import * 
+from Deadly.assistant import get_assistant_details, MULTI_ASSISTANT
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
@@ -147,13 +149,62 @@ async def play(c: Client, m: Message):
                 )
             else:
              try:
-                await call_py.join_group_call(
-                    chat_id,
-                    AudioPiped(
-                        dl,
-                    ),
-                    stream_type=StreamType().local_stream,
-                )
+                if int(assistant) == 1:
+                   await call_py1.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 2:
+                   await call_py2.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 3:
+                   await call_py3.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 4:
+                   await call_py4.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 5:
+                   await call_py5.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                if int(assistant) == 6:
+                   await call_py6.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
+                 if int(assistant) == 7:
+                   await call_py7.join_group_call(
+                       chat_id,
+                       AudioPiped(
+                           dl,
+                       ),
+                       stream_type=StreamType().local_stream,
+                   )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -222,15 +273,69 @@ async def play(c: Client, m: Message):
                         )
                     else:
                         try:
-                            await call_py.join_group_call(
-                                chat_id,
-                                AudioImagePiped(
-                                          ytlink,
-                                          playimg,
-                               video_parameters=MediumQualityVideo(),
-                            ),
-                               stream_type=StreamType().local_stream,
-                            )
+                            if int(assistant) == 1:
+                               await call_py1.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 2:
+                               await call_py2.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 3:
+                               await call_py3.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 4:
+                               await call_py4.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 5:
+                               await call_py5.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 6:
+                               await call_py6.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )
+                            if int(assistant) == 7:
+                               await call_py7.join_group_call(
+                                   chat_id,
+                                   AudioImagePiped(
+                                       ytlink,
+                                       playimg, 
+                                   ),
+                                   stream_type=StreamType().local_stream,
+                               )                          
                             await add_active_chat(chat_id)
                             add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                             await suhu.delete()
@@ -249,8 +354,15 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    bc = call_py.get_max_voice_chat()
-    await message.reply_text(f"Max VoiceChat Allowed: {bc}")
+    a = call_py1.get_max_voice_chat()
+    b = call_py2.get_max_voice_chat()
+    c = call_py3.get_max_voice_chat()
+    d = call_py4.get_max_voice_chat()
+    e = call_py5.get_max_voice_chat()
+    f = call_py6.get_max_voice_chat()
+    g = call_py7.get_max_voice_chat()
+            
+    await message.reply_text(f"Max VoiceChat Allowed:\n\nASSISTANT 1: {a}\nASSISTANT 2: {b}\nASSISTANT 3: {c}\nASSISTANT 4: {d}\nASSISTANT 5: {e}\nASSISTANT 6: {f}\nASSISTANT 7: {g}")
 
 # PARTICIPANT LIST
 
