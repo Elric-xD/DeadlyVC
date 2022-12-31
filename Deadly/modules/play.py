@@ -95,7 +95,7 @@ async def play(c: Client, m: Message):
     try:
         ubot = (await user.get_me()).id
         b = await c.get_chat_member(chat_id, ubot)
-        if b.status == "kicked":
+        if b.status == "banned" or get.status == "kicked":
             await m.reply_text(
                 f"@{ASSISTANT_USERNAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
             )
