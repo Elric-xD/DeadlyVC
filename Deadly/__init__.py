@@ -1,4 +1,3 @@
-
 import time
 import os
 from os import getenv
@@ -77,44 +76,44 @@ bot = Client(
 if not STRING1:
    ASSISTANT_1 = None
 else:   
-   ASSISTANT_1 = Client(STRING1, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT_1, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_1 = Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING1)     
+   user = PyTgCalls(ASSISTANT_1, cache_duration=100, overload_quiet_mode=True)   
 
 if not STRING2:
    ASSISTANT_2 = None
 else:   
-   ASSISTANT_2 = Client(STRING2, api_id=API_ID, api_hash=API_HASH)
-   user2 = PyTgCalls(ASSISTANT_2, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_2 = Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING2)     
+   user2 = PyTgCalls(ASSISTANT_2, cache_duration=100, overload_quiet_mode=True)   
 
 if not STRING3:
    ASSISTANT_3 = None
 else:
-   ASSISTANT_3 = Client(STRING3, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT_3, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_3 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING3) 
+   user3 = PyTgCalls(ASSISTANT_3, cache_duration=100, overload_quiet_mode=True)   
 
 if not STRING4:
    ASSISTANT_4 = None
 else: 
-   ASSISTANT_4 = Client(STRING4, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT_4, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_4 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING4) 
+   user4 = PyTgCalls(ASSISTANT_4, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING5:
    ASSISTANT_5 = None
 else:   
-   ASSISTANT_5 = Client(STRING5, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT_5, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_5 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING5) 
+   user5 = PyTgCalls(ASSISTANT_5, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING6:
    ASSISTANT_6 = None
 else:   
-   ASSISTANT_6 = Client(STRING6, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT_6, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_6 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING6) 
+   user6 = PyTgCalls(ASSISTANT_6, cache_duration=100, overload_quiet_mode=True,)   
    
 if not STRING7:
    ASSISTANT_7 = None
 else:   
-   ASSISTANT_7 = Client(STRING7, api_id=API_ID, api_hash=API_HASH)
-   user = PyTgCalls(ASSISTANT7, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_7 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING7) 
+   user7 = PyTgCalls(ASSISTANT7, cache_duration=100, overload_quiet_mode=True,)   
 
 
 
