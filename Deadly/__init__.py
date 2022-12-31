@@ -4,7 +4,7 @@ from os import getenv
 from dotenv import load_dotenv
 from pyrogram import Client
 from pytgcalls import PyTgCalls, idle
-from Deadly.calls.userbot import Userbot 
+from Deadly.core.calls.userbot import Userbot 
 
 userbot = Userbot()
 
