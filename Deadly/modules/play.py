@@ -63,6 +63,7 @@ ACTV_CALLS = []
 
     
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
+@InviteAssistant
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -94,37 +95,6 @@ async def play(c: Client, m: Message):
     if not a.can_invite_users:
         await m.reply_text("Missing required permission:" + "\n\n» ❌ __Add users__")
         return
-    try:
-        ubot = (await user.get_me()).id
-        b = await c.get_chat_member(chat_id, ubot)
-        if b.status == "banned" or b.status == "kicked":
-            await m.reply_text(
-                f"@{ASSISTANT_USERNAME} **is banned in group** {m.chat.title}\n\n» **Unban the userbot first if you want to use this bot.**"
-            )
-            return
-    except UserNotParticipant:
-        if m.chat.username:
-            try:
-                await user.join_chat(m.chat.username)
-            except Exception as e:
-                await m.reply_text(f"❌ **Userbot failed to join**\n\n**reason**: `{e}`")
-                return
-        else:
-            try:
-                invitelink = await c.export_chat_invite_link(
-                    m.chat.id
-                )
-                if invitelink.startswith("https://t.me/+"):
-                    invitelink = invitelink.replace(
-                        "https://t.me/+", "https://t.me/joinchat/"
-                    )
-                await user.join_chat(invitelink)
-            except UserAlreadyParticipant:
-                pass
-            except Exception as e:
-                return await m.reply_text(
-                    f"❌ **userbot failed to join**\n\n**reason**: `{e}`"
-                )
     if replied:
         if replied.audio or replied.voice:
             suhu = await replied.reply("📥 **Downloading audio...**")
