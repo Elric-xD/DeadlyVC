@@ -67,7 +67,7 @@ async def skip_current_song(chat_id):
                 return [songname, link, type]
             except:
                 await call_py.leave_group_call(chat_id)
-                await await remove_active_chat(chat_id)
+                await remove_active_chat(chat_id)
                 clear_queue(chat_id)
                 return 2
     else:
