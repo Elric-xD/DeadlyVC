@@ -24,15 +24,12 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 OWNER_ID = getenv("OWNER_ID")
 DB_URL = getenv("DB_URL", None) 
 LOG_ID = int(getenv("LOG_ID")) 
-STRING1 = getenv("SESSION_NAME", None) 
-STRING2 = getenv("SESSION_NAME2", None) 
-STRING3 = getenv("SESSION_NAME3", None) 
-STRING4 = getenv("SESSION_NAME4", None) 
-STRING5 = getenv("SESSION_NAME5", None) 
-STRING6 = getenv("SESSION_NAME6", None) 
-STRING7 = getenv("SESSION_NAME7", None) 
 
+# STRING
 
+SESSION1 = getenv("SESSION_NAME", None) 
+SESSION2 = getenv("SESSION_NAME2", None) 
+SESSION3 = getenv("SESSION_NAME3", None) 
 
 #SUPPPORT LIST
 GROUP_SUPPORT = getenv("GROUP_SUPPORT")
@@ -64,101 +61,56 @@ PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.j
 
 """ client area """
 
-bot = Client(
-    "Freya",
-    API_ID,
-    API_HASH,
-    bot_token=BOT_TOKEN,
-    plugins=dict(root="Deadly.modules"),
-    )
+bot = Client("Freya", API_ID, API_HASH, bot_token=BOT_TOKEN, plugins=dict(root="Deadly.modules"))
 
 
-if not STRING1:
+if not SESSION1:
    ASSISTANT_1 = None
 else:   
-   ASSISTANT_1 = Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING1)     
-   user = PyTgCalls(ASSISTANT_1, cache_duration=100, overload_quiet_mode=True)   
-
-if not STRING2:
-   ASSISTANT_2 = None
-else:   
-   ASSISTANT_2 = Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING2)     
-   user2 = PyTgCalls(ASSISTANT_2, cache_duration=100, overload_quiet_mode=True)   
-
-if not STRING3:
-   ASSISTANT_3 = None
-else:
-   ASSISTANT_3 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING3) 
-   user3 = PyTgCalls(ASSISTANT_3, cache_duration=100, overload_quiet_mode=True)   
-
-if not STRING4:
-   ASSISTANT_4 = None
-else: 
-   ASSISTANT_4 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING4) 
-   user4 = PyTgCalls(ASSISTANT_4, cache_duration=100, overload_quiet_mode=True,)   
-
-if not STRING5:
-   ASSISTANT_5 = None
-else:   
-   ASSISTANT_5 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING5) 
-   user5 = PyTgCalls(ASSISTANT_5, cache_duration=100, overload_quiet_mode=True,)   
-
-if not STRING6:
-   ASSISTANT_6 = None
-else:   
-   ASSISTANT_6 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING6) 
-   user6 = PyTgCalls(ASSISTANT_6, cache_duration=100, overload_quiet_mode=True,)   
+   ASSISTANT_1 = Client(SESSION1, api_id=API_ID, api_hash=API_HASH)
    
-if not STRING7:
-   ASSISTANT_7 = None
-else:   
-   ASSISTANT_7 =  Client(api_id=API_ID, api_hash=API_HASH, session_name=STRING7) 
-   user7 = PyTgCalls(ASSISTANT7, cache_duration=100, overload_quiet_mode=True,)   
+
+if not SESSION2:
+   user = None
+else:
+   user = Client(SESSION2, api_id=API_ID, api_hash=API_HASH)
+   
+
+if not SESSION3:
+   user3 = None
+else:
+   user3 = Client(SESSION3, api_id=API_ID, api_hash=API_HASH)
 
 
 
 
+with Client(":musicfreya:", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
+    me_bot = app.get_me()
+    BOT_NAME = me_bot.name
+    BOT_USERNAME = me_bot.username
+    BOT_ID = me_bot.id
 
+LODER = ASSISTANT_1
+ASSISTANT_2 = user
+call_py = PyTgCalls(ASSISTANT_1)
+call_py2 = PyTgCalls(user)
+call_py3 = PyTgCalls(user3)
 
-call_py = PyTgCalls(ASSISTANT_1, overload_quiet_mode=True)
-call_py2 = PyTgCalls(ASSISTANT_2, overload_quiet_mode=True)
-call_py3 = PyTgCalls(ASSISTANT_3, overload_quiet_mode=True)
-call_py4 = PyTgCalls(ASSISTANT_4, overload_quiet_mode=True)
-call_py5 = PyTgCalls(ASSISTANT_5, overload_quiet_mode=True)
-call_py6 = PyTgCalls(ASSISTANT_6, overload_quiet_mode=True)
-call_py7 = PyTgCalls(ASSISTANT_7, overload_quiet_mode=True)
+ASSIDS = []
+ASSID1 = 0
+ASSNAME1 = ""
+ASSUSERNAME1 = ""
+ASSMENTION1 = ""
+ASSID2 = 0
+ASSNAME2 = ""
+ASSUSERNAME2 = ""
+ASSMENTION2 = ""
+ASSID3 = 0
+ASSNAME3 = ""
+ASSUSERNAME3 = ""
+ASSMENTION3 = ""
+total_assistant = []
 
-
-ASS_IDS = []
-ASS_ID1 = 0
-ASS_NAME1 = ""
-ASS_USERNAME1 = ""
-ASS_MENTION1 = ""
-ASS_ID2 = 0
-ASS_NAME2 = ""
-ASS_USERNAME2 = ""
-ASS_MENTION2 = ""
-ASS_ID3 = 0
-ASS_NAME3 = ""
-ASS_USERNAME3 = ""
-ASS_MENTION3 = ""
-ASS_ID4 = 0
-ASS_NAME4 = ""
-ASS_USERNAME4 = ""
-ASS_MENTION4 = ""
-ASS_ID5 = 0
-ASS_NAME5 = ""
-ASS_USERNAME5 = ""
-ASS_MENTION5 = ""
-ASS_ID6 = 0
-ASS_NAME6 = ""
-ASS_USERNAME6 = ""
-ASS_MENTION6 = ""
-ASS_ID7 = 0
-ASS_NAME7 = ""
-ASS_USERNAME7 = ""
-ASS_MENTION7 = ""
-MULTI_ASSISTANT = []
 
 
 with Client("Freya", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
@@ -172,47 +124,24 @@ async def start_bot():
     await bot.start()
     await bot.send_message(LOG_ID, "Starting Assistant Client. . ") 
 # STARTING CLIENT1
-    if STRING1 != "None":
-       await ASSISTANT_1.start()
-       await call_py1.start()
-       await ASSISTANT_1.send_message(LOG_ID, "Assistant One Successfully Started as {ASS_NAME1}") 
-       MULTI_ASSISTANT.append(1)
+    if SESSION1 != "None":
+       await LODER.start()
+       await call_py.start()
+       await LODER.send_message(LOG_ID, f"Assistant One Successfully Started as {ASSNAME1}") 
+       total_assistant.append(1)
 # STARTING CLIENT2
     if STRING2 != "None":
-       await ASSISTANT_2.start()
+       await user.start()
        await call_py2.start()
-       await ASSISTANT_2.send_message(LOG_ID, "Assistant Two Successfully Started as {ASS_NAME2}") 
-       MULTI_ASSISTANT.append(2)
+       await user.send_message(LOG_ID, f"Assistant Two Successfully Started as {ASSNAME2}") 
+       total_assistant.append(2)
 # STARTING CLIENT3
     if STRING3 != "None":
-       await ASSISTANT_3.start()
+       await user3.start() 
        await call_py3.start()
-       await ASSISTANT_3.send_message(LOG_ID, "Assistant Three Started as {ASS_NAME3}") 
-       MULTI_ASSISTANT.append(3)
-# STARTING CLIENT4
-    if STRING4 != "None":
-       await ASSISTANT_4.start()
-       await call_py4.start()
-       await ASSISTANT_4.send_message(LOG_ID, "Assistant Four  Started as {ASS_NAME4}") 
-       MULTI_ASSISTANT.append(4)
-# STARTING CLIENT5
-    if STRING5 != "None":
-       await ASSISTANT_5.start()
-       await call_py5.start()
-       await ASSISTANT_5.send_message(LOG_ID, "Assistant Five  Started as {ASS_NAME5}") 
-       MULTI_ASSISTANT.append(5)    
-# STARTING CLIENT6
-    if STRING6 != "None":
-       await ASSISTANT_6.start()
-       await call_py6.start()
-       await ASSISTANT_6.send_message(LOG_ID, "Assistant Six Successfully Started as {ASS_NAME6}") 
-       MULTI_ASSISTANT.append(6)
-# STARTING CLIENT 7
-    if STRING7 != "None":
-       await ASSISTANT_7.start()
-       await call_py7.start() 
-       await ASSISTANT_7.send_message(LOG_ID, "Assistant Seven  Started as {ASS_NAME7}") 
-       MULTI_ASSISTANT.append(7)
+       await user3.send_message(LOG_ID, f"Assistant Three Started as {ASSNAME3}") 
+       total_assistant.append(3)
+       total_assistant.append(4) 
     print("[INFO]: Your MusicBot Has been started")
     await idle()
     await bot.send_message(LOG_ID, "Your Music Bot Successfully Started") 
