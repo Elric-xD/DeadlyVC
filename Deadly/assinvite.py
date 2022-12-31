@@ -7,7 +7,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 
 from Deadly import bot as app
 from Deadly.assistant import get_assistant_details
-from Deadly import MULTI_ASSISTANT 
+from Deadly import total_assistant 
 from Deadly.database.assistantdb import getassistant, save_assistant
 
 ASS_IDS = []
