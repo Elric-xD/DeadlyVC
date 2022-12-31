@@ -5,6 +5,7 @@ from Deadly.core.decorators import authorized_users_only
 from Deadly.core.filters import command, other_filters
 from Deadly.core.queues import QUEUE, clear_queue
 from Deadly import bot as Client
+from Deadly.database.voicechatdb import *
 from Deadly.core.utils import skip_current_song, skip_item
 from Deadly import BOT_USERNAME, GROUP_SUPPORT, IMG_3, UPDATES_CHANNEL, IMG_5
 from pyrogram.types import (
@@ -101,6 +102,7 @@ async def stop(client, m: Message):
     if chat_id in QUEUE:
         try:
             await call_py.leave_group_call(chat_id)
+            await remove_active_chat(chat_id)
             clear_queue(chat_id)
             await m.reply(f"🎧 Voicechat Ended by {requester}!")
         except Exception as e:
@@ -240,6 +242,7 @@ async def cbstop(_, query: CallbackQuery):
     if chat_id in QUEUE:
         try:
             await call_py.leave_group_call(chat_id)
+            await remove_active_chat(chat_id) 
             clear_queue(chat_id)
             await query.edit_message_text("✅ **This Streaming has Ended**", reply_markup=bcl)
         except Exception as e:
