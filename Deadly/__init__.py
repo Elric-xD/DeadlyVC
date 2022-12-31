@@ -78,36 +78,43 @@ if not STRING1:
    ASSISTANT_1 = None
 else:   
    ASSISTANT_1 = Client(STRING1, api_id=API_ID, api_hash=API_HASH)
-   
+   user = PyTgCalls(ASSISTANT_1, cache_duration=100, overload_quiet_mode=True,)   
+
 if not STRING2:
-   user = None
+   ASSISTANT_2 = None
 else:   
-   user = Client(STRING2, api_id=API_ID, api_hash=API_HASH)
+   ASSISTANT_2 = Client(STRING2, api_id=API_ID, api_hash=API_HASH)
+   user2 = PyTgCalls(ASSISTANT_2, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING3:
    ASSISTANT_3 = None
 else:
    ASSISTANT_3 = Client(STRING3, api_id=API_ID, api_hash=API_HASH)
+   user = PyTgCalls(ASSISTANT_3, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING4:
    ASSISTANT_4 = None
 else: 
    ASSISTANT_4 = Client(STRING4, api_id=API_ID, api_hash=API_HASH)
+   user = PyTgCalls(ASSISTANT_4, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING5:
    ASSISTANT_5 = None
 else:   
    ASSISTANT_5 = Client(STRING5, api_id=API_ID, api_hash=API_HASH)
+   user = PyTgCalls(ASSISTANT_5, cache_duration=100, overload_quiet_mode=True,)   
 
 if not STRING6:
    ASSISTANT_6 = None
 else:   
    ASSISTANT_6 = Client(STRING6, api_id=API_ID, api_hash=API_HASH)
+   user = PyTgCalls(ASSISTANT_6, cache_duration=100, overload_quiet_mode=True,)   
    
 if not STRING7:
    ASSISTANT_7 = None
 else:   
    ASSISTANT_7 = Client(STRING7, api_id=API_ID, api_hash=API_HASH)
+   user = PyTgCalls(ASSISTANT7, cache_duration=100, overload_quiet_mode=True,)   
 
 
 
