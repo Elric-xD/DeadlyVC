@@ -110,16 +110,52 @@ else:
    ASSISTANT_7 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 
-blaze = Client(
-    api_id=API_ID,
-    api_hash=API_HASH,
-    session_name=SESSION_NAME,
-    
-    )
 
-user = PyTgCalls(blaze,
-    cache_duration=100,
-    overload_quiet_mode=True,)
+
+
+call_py1 = PyTgCalls(ASSISTANT_1)
+call_py2 = PyTgCalls(ASSISTANT_2)
+call_py3 = PyTgCalls(ASSISTANT_3)
+call_py4 = PyTgCalls(ASSISTANT_4)
+call_py5 = PyTgCalls(ASSISTANT_5)
+call_py6 = PyTgCalls(ASSISTANT_6)
+call_py7 = PyTgCalls(ASSISTANT_7)
+
+
+ASS_IDS = []
+ASS_ID1 = 0
+ASS_NAME1 = ""
+ASS_USERNAME1 = ""
+ASS_MENTION1 = ""
+ASS_ID2 = 0
+ASS_NAME2 = ""
+ASS_USERNAME2 = ""
+ASS_MENTION2 = ""
+ASS_ID3 = 0
+ASS_NAME3 = ""
+ASS_USERNAME3 = ""
+ASS_MENTION3 = ""
+ASS_ID4 = 0
+ASS_NAME4 = ""
+ASS_USERNAME4 = ""
+ASS_MENTION4 = ""
+ASS_ID5 = 0
+ASS_NAME5 = ""
+ASS_USERNAME5 = ""
+ASS_MENTION5 = ""
+ASS_ID6 = 0
+ASS_NAME6 = ""
+ASS_USERNAME6 = ""
+ASS_MENTION6 = ""
+ASS_ID7 = 0
+ASS_NAME7 = ""
+ASS_USERNAME7 = ""
+ASS_MENTION7 = ""
+MULTI_ASSISTANT = []
+
+
+
+
 
 
 
