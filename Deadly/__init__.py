@@ -128,7 +128,7 @@ total_assistant = []
 
 
 with Client("Freya", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
-    Freya = Freya.get_me()
+    Freya = app.get_me()
     BOT_NAME = Freya.first_name
     BOT_USERNAME = Freya.username
 
