@@ -238,7 +238,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=playimg,
-                                caption=f"📡 Started Streaming 💡\n\n💡Title: {title}\n\n⏱Duration: {duration}\n\n👤Added By: {requester}",
+                                caption=f"📡 Started Streaming 💡\n\n💡Title: {title}\n\n👤Added By: {requester}",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
@@ -253,10 +253,3 @@ async def get_play_status(client: Client, message: Message):
     bc = call_py.get_max_voice_chat()
     await message.reply_text(f"Max VoiceChat Allowed: {bc}")
 
-# PARTICIPANT LIST
-
-@Client.on_message(command(["vclist", f"vclist@{BOT_USERNAME}"]) & other_filters)
-async def get_user_status(client: Client, message: Message):
-    await message.delete()
-    bc = await call_py.get_participants(message.chat.id)
-    await message.reply_text(f"**Participant List:**\n {bc}")
