@@ -23,6 +23,7 @@ from Deadly.core.utils import bash
 from Deadly import bot as Client
 from Deadly.database.assistantdb import * 
 from Deadly.assistant import get_assistant_details, MULTI_ASSISTANT
+from Deadly.assinvite import InviteAssistant
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
