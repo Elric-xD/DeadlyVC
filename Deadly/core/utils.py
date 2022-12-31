@@ -1,4 +1,3 @@
-
 import os
 import asyncio
 from Deadly import bot, call_py
@@ -17,6 +16,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     Message,
 )
+from Deadly.database.voicechatdb import *
 from pyrogram import Client, filters
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
@@ -36,6 +36,7 @@ async def skip_current_song(chat_id):
         chat_queue = get_queue(chat_id)
         if len(chat_queue) == 1:
             await call_py.leave_group_call(chat_id)
+            await remove_active_chat(chat_id)
             clear_queue(chat_id)
             return 1
         else:
@@ -66,6 +67,7 @@ async def skip_current_song(chat_id):
                 return [songname, link, type]
             except:
                 await call_py.leave_group_call(chat_id)
+                await await remove_active_chat(chat_id)
                 clear_queue(chat_id)
                 return 2
     else:
@@ -90,18 +92,21 @@ async def skip_item(chat_id, h):
 @call_py.on_kicked()
 async def kicked_handler(_, chat_id: int):
     if chat_id in QUEUE:
+        await bot.send_message(chat_id, "Assistant kicked clearing queue. .") 
         clear_queue(chat_id)
 
 
 @call_py.on_closed_voice_chat()
 async def closed_voice_chat_handler(_, chat_id: int):
     if chat_id in QUEUE:
+        await bot.send_message(chat_id, "VoiceChat closed leaving vc. .") 
         clear_queue(chat_id)
-
+         
 
 @call_py.on_left()
 async def left_handler(_, chat_id: int):
     if chat_id in QUEUE:
+        await bot.send_message(chat_id, "Assistant left clearing queue. .") 
         clear_queue(chat_id)
 
 
