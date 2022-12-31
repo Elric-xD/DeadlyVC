@@ -1,6 +1,7 @@
+
 import os
 import asyncio
-from Deadly import bot, call_py, call_py2, call_py3, PING_URL
+from Deadly import bot, call_py
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from .queues import QUEUE, clear_queue, get_queue, pop_an_item
@@ -35,12 +36,7 @@ async def skip_current_song(chat_id):
     if chat_id in QUEUE:
         chat_queue = get_queue(chat_id)
         if len(chat_queue) == 1:
-            if int(assistant) == 1:
-               await call_py.leave_group_call(chat_id)
-            if int(assistant) == 2:
-               await call_py2.leave_group_call(chat_id)
-            if int(assistant) == 3:
-               await call_py3.leave_group_call(chat_id)
+            await call_py.leave_group_call(chat_id)
             await remove_active_chat(chat_id)
             clear_queue(chat_id)
             return 1
@@ -52,27 +48,12 @@ async def skip_current_song(chat_id):
                 type = chat_queue[1][3]
                 Q = chat_queue[1][4]
                 if type == "Audio":
-                    if int(assistant) == 1:
-                       await call_py.change_stream(
-                           chat_id,
-                           AudioPiped(
-                               url,
-                           ),
-                       )
-                    if int(assistant) == 2:
-                       await call_py2.change_stream(
-                           chat_id,
-                           AudioPiped(
-                               url,
-                           ),
-                       )
-                    if int(assistant) == 3:
-                       await call_py3.change_stream(
-                           chat_id,
-                           AudioPiped(
-                               url,
-                           ),
-                       )
+                    await call_py.change_stream(
+                        chat_id,
+                        AudioPiped(
+                            url,
+                        ),
+                    )
                 elif type == "Video":
                     if Q == 720:
                         hm = HighQualityVideo()
@@ -83,28 +64,15 @@ async def skip_current_song(chat_id):
                     await call_py.change_stream(
                         chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
                     )
-                    await call_py2.change_stream(
-                        chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
-                    )
-                    await call_py3.change_stream(
-                        chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
-                    )
                 pop_an_item(chat_id)
                 return [songname, link, type]
             except:
-                if int(assistant) == 1:
-                   await call_py.leave_group_call(chat_id)
-                if int(assistant) == 2:
-                   await call_py2.leave_group_call(chat_id)
-                if int(assistant) == 3:
-                   await call_py3.leave_group_call(chat_id)
+                await call_py.leave_group_call(chat_id)
                 await remove_active_chat(chat_id)
                 clear_queue(chat_id)
                 return 2
     else:
         return 0
-
-
 
 
 async def skip_item(chat_id, h):
@@ -122,67 +90,22 @@ async def skip_item(chat_id, h):
         return 0
 
 
-@call_py.on_closed_voice_chat()
-async def closed_voice_chat_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-
-@call_py2.on_closed_voice_chat()
-async def closed_voice_chat_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-@call_py3.on_closed_voice_chat()
-async def closed_voice_chat_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-
-
 @call_py.on_kicked()
 async def kicked_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        await remove_active_chat(chat_id)
 
-@call_py2.on_kicked()
-async def kicked_handler(_, chat_id: int):
+
+@call_py.on_closed_voice_chat()
+async def closed_voice_chat_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-@call_py3.on_kicked()
-async def kicked_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-
-
+         
 
 @call_py.on_left()
 async def left_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-@call_py2.on_left()
-async def left_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-@call_py3.on_left()
-async def left_handler(_, chat_id: int):
-    if chat_id in QUEUE:
-        clear_queue(chat_id)
-        await remove_active_chat(chat_id)
-
-
 
 
 @call_py.on_stream_end()
@@ -192,47 +115,13 @@ async def stream_end_handler(_, u: Update):
         print(chat_id)
         op = await skip_current_song(chat_id)
         if op==1:
-           await bot.send_message(chat_id, "✅ **userbot has disconnected from video chat.**")
+           await bot.send_message(chat_id, "Assistant left voice chat as no more queue or request found in the local playlist.")
         elif op==2:
            await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
         else:
-         await bot.send_photo(chat_id, f"{NEXT_IMG}", caption=f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", reply_markup=keyboard)
+         await bot.send_message(chat_id, f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", disable_web_page_preview=True, reply_markup=keyboard)
     else:
        pass
-
-@call_py2.on_stream_end()
-async def stream_end_handler(_, u: Update):
-    if isinstance(u, StreamAudioEnded):
-        chat_id = u.chat_id
-        print(chat_id)
-        op = await skip_current_song(chat_id)
-        if op==1:
-           await bot.send_message(chat_id, "✅ **userbot has disconnected from video chat.**")
-        elif op==2:
-           await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
-        else:
-         await bot.send_photo(chat_id, f"{NEXT_IMG}", caption=f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", reply_markup=keyboard)
-    else:
-       pass
-
-@call_py3.on_stream_end()
-async def stream_end_handler(_, u: Update):
-    if isinstance(u, StreamAudioEnded):
-        chat_id = u.chat_id
-        print(chat_id)
-        op = await skip_current_song(chat_id)
-        if op==1:
-           await bot.send_message(chat_id, "✅ **userbot has disconnected from video chat.**")
-        elif op==2:
-           await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
-        else:
-         await bot.send_photo(chat_id, f"{NEXT_IMG}", caption=f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", reply_markup=keyboard)
-    else:
-       pass
-
-
-
-
 
 
 async def bash(cmd):
