@@ -86,7 +86,7 @@ async def skip_current_song(chat_id):
                     await call_py2.change_stream(
                         chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
                     )
-                     await call_py3.change_stream(
+                    await call_py3.change_stream(
                         chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
                     )
                 pop_an_item(chat_id)
