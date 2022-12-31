@@ -5,8 +5,7 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
 
-from Deadly import BOT_NAME
-
+from Deadly import BOT_NAME, bot as app
 loop = asyncio.get_running_loop()
 
 
