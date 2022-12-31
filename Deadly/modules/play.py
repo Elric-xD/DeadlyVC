@@ -355,7 +355,7 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    a = call_py1.get_max_voice_chat()
+    a = call_py.get_max_voice_chat()
     b = call_py2.get_max_voice_chat()
     c = call_py3.get_max_voice_chat()
     d = call_py4.get_max_voice_chat()
@@ -367,8 +367,3 @@ async def get_play_status(client: Client, message: Message):
 
 # PARTICIPANT LIST
 
-@Client.on_message(command(["vclist", f"vclist@{BOT_USERNAME}"]) & other_filters)
-async def get_user_status(client: Client, message: Message):
-    await message.delete()
-    bc = await call_py.get_participants(message.chat.id)
-    await message.reply_text(f"**Participant List:**\n {bc}")
