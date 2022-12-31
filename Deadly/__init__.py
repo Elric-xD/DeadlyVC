@@ -14,15 +14,26 @@ if os.path.exists("local.env"):
 load_dotenv()
 admins = {}
 
+
+
+
 #REQUIRED
-SESSION_NAME = getenv("SESSION_NAME", "")
-BOT_TOKEN = getenv("BOT_TOKEN")
 API_ID = int(getenv("API_ID", "8186557"))
 API_HASH = getenv("API_HASH", "efd77b34c69c164ce158037ff5a0d117")
-OWNER_NAME = getenv("OWNER_NAME", "Elric_xD")
-DB_URL = getenv("DB_URL", "mongodb+srv://blaze09:Blaze0786@cluster0.ihdjovn.mongodb.net/?retryWrites=true&w=majority") 
+BOT_TOKEN = getenv("BOT_TOKEN")
+OWNER_ID = getenv("OWNER_ID")
+DB_URL = getenv("DB_URL", None) 
+ 
 
-ALIVE_NAME = getenv("ALIVE_NAME", "DeadlyVC")
+STRING1 = getenv("SESSION_NAME", None) 
+STRING2 = getenv("SESSION_NAME2", None) 
+STRING3 = getenv("SESSION_NAME3", None) 
+STRING4 = getenv("SESSION_NAME4", None) 
+STRING5 = getenv("SESSION_NAME5", None) 
+STRING6 = getenv("SESSION_NAME6", None) 
+STRING7 = getenv("SESSION_NAME7", None) 
+
+
 
 #SUPPPORT LIST
 GROUP_SUPPORT = getenv("GROUP_SUPPORT")
@@ -32,9 +43,8 @@ SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 
 #EXTRA
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
-ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.png")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "300"))
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/AMANTYA1/RaiChu-MusicV2")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/Elric-xD/DeadlyVC")
 
 
 #IMAGES
@@ -44,18 +54,61 @@ IMG_3 = getenv("IMG_3", "https://telegra.ph/file/f02efde766160d3ff52d6.png")
 IMG_4 = getenv("IMG_4", "https://telegra.ph/file/be5f551acb116292d15ec.png")
 IMG_5 = getenv("IMG_5", "https://telegra.ph/file/c3401a572375b569138c3.png")
 IMG_6 = getenv("IMG_6", "https://telegra.ph/file/d8f8fc1de9110b93ca94c.jpg")
+ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.png")
 YOUTUBE_IMG_URL = getenv("YOUTUBE_IMG_URL", "https://telegra.ph/file/58da23d726b601dc3b18e.jpg")
 PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.jpg") 
+
+
+
+
+
 
 """ client area """
 
 bot = Client(
-    "Deadly",
+    "Freya",
     API_ID,
     API_HASH,
     bot_token=BOT_TOKEN,
     plugins=dict(root="Deadly.modules"),
     )
+
+
+if not STRING1:
+   ASSISTANT_1 = None
+else:   
+   ASSISTANT_1 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+   
+if not STRING2:
+   ASSISTANT_2 = None
+else:   
+   ASSISTANT_2 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING3:
+   ASSISTANT_3 = None
+else:   
+   ASSISTANT_3 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING4:
+   ASSISTANT_4 = None
+else:   
+   ASSISTANT_4 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING5:
+   ASSISTANT_5 = None
+else:   
+   ASSISTANT_5 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+
+if not STRING6:
+   ASSISTANT_6 = None
+else:   
+   ASSISTANT_6 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+   
+if not STRING7:
+   ASSISTANT_7 = None
+else:   
+   ASSISTANT_7 = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
+
 
 blaze = Client(
     api_id=API_ID,
@@ -68,16 +121,11 @@ user = PyTgCalls(blaze,
     cache_duration=100,
     overload_quiet_mode=True,)
 
-call_py = PyTgCalls(blaze, overload_quiet_mode=True)
 
-with Client("Deadly", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
-    asbot = app.get_me()
-    BOT_NAME = asbot.first_name
-    BOT_USERNAME = asbot.username
 
-with blaze as app:
-    asid = app.get_me()
-    ASSISTANT_ID = asid.id
-    ASSISTANT_NAME = asid.first_name 
-    ASSISTANT_USERNAME = asid.username
-   
+with Client("Freya", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
+    Freya = Freya.get_me()
+    BOT_NAME = Freya.first_name
+    BOT_USERNAME = Freya.username
+
+
