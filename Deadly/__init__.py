@@ -86,7 +86,7 @@ else:
 
 with Client(":musicfreya:", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
     me_bot = app.get_me()
-    BOT_NAME = me_bot.name
+    BOT_NAME = me_bot.first_name
     BOT_USERNAME = me_bot.username
     BOT_ID = me_bot.id
 
