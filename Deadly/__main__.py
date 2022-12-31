@@ -1,6 +1,6 @@
 import asyncio
 from pytgcalls import idle
-from Deadly import call_py, bot, LOG_ID, BOT_NAME, ASSISTANT_NAME
+from Deadly import call_py, bot, LOG_ID, BOT_NAME, ASSISTANT_NAME, blaze
 
 async def start_bot():
     print("Starting Music Bot")
