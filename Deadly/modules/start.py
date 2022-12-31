@@ -130,5 +130,3 @@ async def start_comm(client, message: Message):
         ),
      disable_web_page_preview=True
     )
-
-
