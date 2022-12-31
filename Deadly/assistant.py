@@ -1,7 +1,7 @@
 from Deadly import LODER, user2, user3
-from Deadly import SESSION1, STRING2,  STRING3
+from Deadly import SESSION1, SESSION2,  SESSION3
 
-MULTI_ASSISTANT = ["1", "2", "3"]
+total_assistant = ["1", "2", "3"]
 
 
 ASS_IDS = []
@@ -21,7 +21,7 @@ ASS_MENTION3 = ""
 
 
 async def get_assistant_details(assistant: int):
-    if SESSION_NAME != "None":
+    if SESSION1 != "None":
        getme1 = await Test.get_me()
        ASSID1 = getme1.id
        ASSIDS.append(ASSID1)
