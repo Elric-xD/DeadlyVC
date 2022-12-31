@@ -1,5 +1,6 @@
+
 from Deadly.core.Cache.admins import admins
-from Deadly import call_py, call_py2, call_py3
+from Deadly import call_py
 from pyrogram import filters
 from Deadly.core.decorators import authorized_users_only
 from Deadly.core.filters import command, other_filters
