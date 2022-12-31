@@ -94,19 +94,19 @@ async def skip_item(chat_id, h):
 async def kicked_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-
+        await remove_active_chat(chat_id)
 
 @call_py.on_closed_voice_chat()
 async def closed_voice_chat_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-         
+        await remove_active_chat(chat_id) 
 
 @call_py.on_left()
 async def left_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-
+        await remove_active_chat(chat_id)
 
 @call_py.on_stream_end()
 async def stream_end_handler(_, u: Update):
