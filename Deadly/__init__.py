@@ -23,8 +23,7 @@ API_HASH = getenv("API_HASH", "efd77b34c69c164ce158037ff5a0d117")
 BOT_TOKEN = getenv("BOT_TOKEN")
 OWNER_ID = getenv("OWNER_ID")
 DB_URL = getenv("DB_URL", None) 
- 
-
+LOG_ID = int(getenv("LOG_ID")) 
 STRING1 = getenv("SESSION_NAME", None) 
 STRING2 = getenv("SESSION_NAME2", None) 
 STRING3 = getenv("SESSION_NAME3", None) 
