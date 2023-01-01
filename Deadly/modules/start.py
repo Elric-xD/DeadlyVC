@@ -98,35 +98,4 @@ async def start_comm(client, message: Message):
                 LOG_ID,
                f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-    else:
-        try:
-            await message.reply_text(
-        f"""Hello, {message.from_user.mention()}
-๏ My name is {BOT_NAME}
-๏ I'm Telegram Music Bot with only useful Featured. 
-๏ This MusicBot Can be Deployed On Heroku also..
-        """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [                   
-                    InlineKeyboardButton(
-                        "Commands & Help ❔", callback_data="cbbasic"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                       "Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    ),
-                    InlineKeyboardButton(
-                       "Support", url=f"https://t.me/{GROUP_SUPPORT}"
-                    )
-                ],[
-                    InlineKeyboardButton(
-                        "➕ Add Me To Your Group ➕",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-                    )
-                ]
-            ]
-        ),
-     disable_web_page_preview=True
-    )
+    
