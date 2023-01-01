@@ -36,5 +36,19 @@ async def pingm(client, message: Message):
     pytgping = await Akki.ping
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
-    await response.edit_text(f"{BOT_NAME} ɪs ᴡᴏʀᴋɪɴɢ ɢᴏᴏᴅ ᴡɪᴛʜ ᴀ ᴘɪɴɢ ᴏғ  {resp}ᴍs.\n\nʙᴏᴛ's ᴜᴘᴛɪᴍᴇ: {UP}\n\nᴛᴏᴛᴀʟ ᴏғ  {DISK} sᴇʀᴠᴇʀ's sᴛᴏʀᴀɢᴇ.\n\nᴄᴘᴜ ʟᴏᴀᴅ ɪs ᴀʙᴏᴜᴛ {CPU} \n\nᴡɪᴛʜ ᴀ ᴄᴏɴsᴜᴍᴘᴛɪᴏɴ ᴏғ {RAM} ʀᴀᴍ. \nᴘʏ-ᴛɢᴄᴀʟʟs ᴄʟɪᴇɴᴛ ʜᴀᴠɪɴɢ ᴘɪɴɢ ᴏғ {pytgping} ᴍs.")
+    await response.edit_text(f"""
+➽─────────────❥
+{BOT_NAME} ɪs ʀᴇᴀᴅʏ ᴛᴏ ᴘʟᴀʏ ᴍᴜsɪᴄ 🎶
+ᴡɪᴛʜ ᴘɪɴɢ ᴏғ: {resp}ms
 
+ ╭⸻⸻⸻╮
+ ◆ Uᴘᴛɪᴍᴇ ⊱ {UP}
+ ◆ Cᴘᴜ ⊱ {CPU}
+ ◆ Rᴀᴍ ⊱ {RAM}
+ ◆ Pʏ- Tɢᴄᴀʟʟs Pɪɴɢ ⊱  {pytgping} ms
+ ◆ Sᴛᴏʀᴀɢᴇ ᴜsᴇᴅ ⊱ {DISK}
+ ╰⸻⸻⸻╯
+
+➽─────────────❥
+"""
+) 
