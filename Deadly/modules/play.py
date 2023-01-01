@@ -185,7 +185,7 @@ async def play(c: Client, m: Message):
             )
         else:
             suhu = await m.reply_text(
-        f"**🔄 Processing Query... Please Wait!**"
+        f"🔄 Processing Query... Please Wait!"
     )
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
@@ -218,7 +218,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=queueimg,
-                            caption=f"⏳ Added to Queue at **#{pos}**\n\n💡Title: {title}\n\n⏱Duration: {duration}\n\n👤Added By: {requester}",
+                            caption=f"⏳ Added to Queue at **#{pos}**\n\n💡Title: [{title}]({info})\n⏰ Duration: {duration}\n👤Added By: {requester}",
                             reply_markup=InlineKeyboardMarkup(keyboard),
                         )
                     else:
@@ -238,7 +238,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=playimg,
-                                caption=f"📡 Started Streaming 💡\n\n💡Title: {title}\n\n👤Added By: {requester}",
+                                caption=f"📡 Started Streaming 💡\n\n💡Title: [{title}]({info})\n⏰ Duration: {duration}\n👤Added By: {requester}",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
