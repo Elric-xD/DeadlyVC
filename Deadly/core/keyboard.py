@@ -91,8 +91,8 @@ def nexta_markup(user_id, videoid):
 def support_markup(user_id):
   buttons = [
     [
-      InlineKeyboardButton(text="💁Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP_SUPPORT}),
-      InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ🙋", url=f"t.me/{UPDATES_CHANNEL}),
+      InlineKeyboardButton(text="💁Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP_SUPPORT}"),
+      InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ🙋", url=f"t.me/{UPDATES_CHANNEL}"),
     ],
     [
       InlineKeyboardButton(text="Close🗑", callback_data=f'cls'),
