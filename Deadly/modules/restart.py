@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from Deadly import SUDO_USERS
+from Deadly import SUDO_USERS, OWNER_ID
 import os
 import time
 
