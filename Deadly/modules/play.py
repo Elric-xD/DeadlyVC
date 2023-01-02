@@ -142,8 +142,9 @@ async def play(c: Client, m: Message):
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
-                await m.reply_text(                  
-                    text=f"💡 **Track added to queue »** `{pos}`\n\n🏷 **Name:** [{songname}]({link}) | `music`\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}",
+                await m.reply_photo(  
+                    photo=" {IMG_1}",              
+                    caption=f"⏳ Added to Queue at **#{pos}**\n\n💡Title: [{songname}]({link})\n\n\n👤Added By: {m.from_user.mention()}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
             else:
@@ -158,8 +159,9 @@ async def play(c: Client, m: Message):
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
-                await m.reply_text(                    
-                    text=f"🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {requester}\n📹 **Stream type:** `Music`",
+                await m.reply_photo(  
+                    photo=f{IMG_4"}",        
+                    caption=f"📡 Started Streaming 💡\n\n💡Title: [{songname}]({link})\n\n👤Added By: {requester}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
              except Exception as e:
@@ -185,12 +187,12 @@ async def play(c: Client, m: Message):
             )
         else:
             suhu = await m.reply_text(
-        f"🔄 Processing Query... Please Wait!"
+        f"Sᴇᴀʀᴄʜɪɴɢ...Pʟᴇᴀsᴇ Wᴀɪᴛ...!! 🍁💫"
     )
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("💬 **No results Found.**")
+                await suhu.edit("Fᴀɪʟᴇᴅ Tᴏ Pʀᴏᴄᴇss Qᴜᴇʀʏ...!!")
             else:
                 songname = search[0]
                 title = search[0]
@@ -202,6 +204,7 @@ async def play(c: Client, m: Message):
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
                 info = f"https://t.me/{BOT_USERNAME}?start=info_{videoid}"
+                requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 keyboard = stream_markup(user_id, videoid)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
@@ -231,20 +234,19 @@ async def play(c: Client, m: Message):
                                video_parameters=MediumQualityVideo(),
                             ),
                                stream_type=StreamType().local_stream,
-                            )
-                            await add_active_chat(chat_id)
-                            add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                            await suhu.delete()
-                            requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+                            )                                                                          
                             await m.reply_photo(
                                 photo=playimg,
                                 caption=f"📡 Started Streaming 💡\n\n💡Title: [{title}]({info})\n⏰ Duration: {duration}\n👤Added By: {requester}",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
+                            await suhu.delete()
+                            await add_active_chat(chat_id)
+                            add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         except Exception as ep:
                             await suhu.delete()
                             await m.reply_text(f"💬 error: `{ep}`")
-
+                            
 # STATUS CHECK
 
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
