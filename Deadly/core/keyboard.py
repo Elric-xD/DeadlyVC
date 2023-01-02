@@ -5,6 +5,7 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 from youtubesearchpython import VideosSearch
+from Deadly import GROUP_SUPPORT, UPDATES_CHANNEL
 from pyrogram.types import (
   CallbackQuery,
   InlineKeyboardButton,
@@ -29,8 +30,8 @@ def ytsearch(query):
 def audio_markup(user_id):
   buttons = [
     [
-      InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data=f'cbmenu | {user_id}'),
-      InlineKeyboardButton(text="• Iɴʟɪɴᴇ", switch_inline_query_current_chat=""),
+      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
       InlineKeyboardButton(text="Close🗑", callback_data=f'cls'),
@@ -41,37 +42,67 @@ def audio_markup(user_id):
 def stream_markup(user_id, dlurl, info):
   buttons = [
     [
-      InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}'),
-      InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
-    ],
-    [
-      InlineKeyboardButton(text="• ᴜɴғᴏ •", url=f"{info}"),
-      InlineKeyboardButton(text="• ᴅᴏᴡɴʟᴏᴀᴅ •", url=f"{dlurl}")
-    ],
-    [
-      InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data=f'cbmenu | {user_id}'),
-      InlineKeyboardButton(text="• Iɴʟɪɴᴇ", switch_inline_query_current_chat=""),
+      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
       InlineKeyboardButton(text="Close🗑", callback_data=f'cls'),
-    ],
+    ],    
   ]
   return buttons
 
 def menu_markup(user_id):
   buttons = [
-     [InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}')],
-     [InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
+    [
+      InlineKeyboardButton(text="IIPause", callback_data=f'cbpause | {user_id}'),
+      InlineKeyboardButton(text="▷Resume", callback_data=f'cbresume | {user_id}'),
     ],
-     [InlineKeyboardButton(text="🔇", callback_data=f'cbmute | {user_id}'),
-      InlineKeyboardButton(text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/TheDeadlyBots"),
-      InlineKeyboardButton(text="🔊", callback_data=f'cbunmute | {user_id}')],
+    [
+      InlineKeyboardButton(text="‣‣ISkip", callback_data=f'cbskip | {user_id}'),
+      InlineKeyboardButton(text="▢Stop", callback_data=f'cbstop | {user_id}'), 
+    ],
+    [
+      InlineKeyboardButton(text="Next▶️", url=f"https://t.me/TheDeadlyBots")
+      InlineKeyboardButton(
+        "Close🗑", callback_data="cls"
+      ), 
+      
+    ], 
   ]
   return buttons
+
+def nexta_markup(user_id):
+buttons = [
+    [
+      InlineKeyboardButton(text="🔇Mute", callback_data=f'cbmute | {user_id}'),
+      InlineKeyboardButton(text="🔊Unmute", callback_data=f'cbunmute | {user_id}'), 
+    ], 
+    [
+      InlineKeyboardButton(text="🔽Down", callback_data=f'cbdown | {videoid}'),         
+      InlineKeyboardButton(text="• Inline", switch_inline_query_current_chat=""),
+    ]
+    [
+      InlineKeyboardButton(text="◀️Back", callback_data=f'cbmenu'),         
+      InlineKeyboardButton(
+        "Close🗑", callback_data="cls"
+      ), 
+    ]
+  ]
+  return buttons   
+
+def support_markup(user_id):
+  buttons = [
+    [
+      InlineKeyboardButton(text="💁Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP_SUPPORT}),
+      InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ🙋", url=f"t.me/{UPDATES_CHANNEL}),
+    ],
+    [
+      InlineKeyboardButton(text="Close🗑", callback_data=f'cls'),
+    ],    
+  ]
+  return buttons
+
+
 
 def song_download_markup(videoid):
     buttons = [
