@@ -11,7 +11,7 @@ from Deadly import (
     OWNER_NAME,
     UPDATES_CHANNEL,
 )
-from Deadly.core.keyboard import menu_markup, song_download_markup, stream_markup, audio_markup, support_markup
+from Deadly.core.keyboard import menu_markup, song_download_markup, stream_markup, audio_markup
 
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
