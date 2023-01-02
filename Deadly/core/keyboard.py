@@ -88,7 +88,7 @@ def nexta_markup(user_id, videoid):
   ]
   return buttons   
 
-def support_markup(user_id):
+def support_markup(user_id, SUPPORT_GROUP, UPDATE_CHANNEL):
   buttons = [
     [
       InlineKeyboardButton(text="💁Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP_SUPPORT}"),
