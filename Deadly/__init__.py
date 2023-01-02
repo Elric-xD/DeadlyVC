@@ -39,6 +39,7 @@ UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/AMANTYA1/RaiChu-Musi
 
 
 #IMAGES
+START_IMG = getenv("START_IMG", None) 
 IMG_1 = getenv("IMG_1", "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 IMG_2 = getenv("IMG_2", "https://telegra.ph/file/6213d2673486beca02967.png")
 IMG_3 = getenv("IMG_3", "https://telegra.ph/file/f02efde766160d3ff52d6.png")
