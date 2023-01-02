@@ -1,3 +1,4 @@
+""" © <https://github.com/Elric-xD> """
 
 import yt_dlp
 from Deadly.core.queues import QUEUE
