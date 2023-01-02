@@ -48,7 +48,7 @@ def stream_markup(user_id, videoid):
       InlineKeyboardButton(text="▢Stop", callback_data=f'cbstop | {user_id}'), 
     ],
     [
-      InlineKeyboardButton(text="• Dᴏᴡɴʟᴏᴀᴅ", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="• Dᴏᴡɴʟᴏᴀᴅ", callback_data=f'cbdown | {videoid}'),
       InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
