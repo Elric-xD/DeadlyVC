@@ -10,8 +10,6 @@ _boot_ = time.time()
 
 """ config area """
 
-if os.path.exists("local.env"):
-    load_dotenv("local.env")
 load_dotenv()
 admins = {}
 
