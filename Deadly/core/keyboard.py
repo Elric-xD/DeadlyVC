@@ -42,7 +42,7 @@ def audio_markup(user_id):
 def stream_markup(user_id, videoid):
   buttons = [
     [
-      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id} | {videoid}'),
+      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id}'),
       InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
@@ -62,16 +62,14 @@ def menu_markup(user_id, videoid):
       InlineKeyboardButton(text="▢Stop", callback_data=f'cbstop | {user_id}'), 
     ],
     [
-      InlineKeyboardButton(text="Next▶️", url=f"https://t.me/TheDeadlyBots")
-      InlineKeyboardButton(
-        "Close🗑", callback_data="cls"
-      ), 
+      InlineKeyboardButton(text="Next▶️", callback_data=f'cbnext | {user_id}'), 
+      InlineKeyboardButton("Close🗑", callback_data="cls"), 
       
     ], 
   ]
   return buttons
 
-def nexta_markup(user_id):
+def nexta_markup(user_id, videoid):
 buttons = [
     [
       InlineKeyboardButton(text="🔇Mute", callback_data=f'cbmute | {user_id}'),
