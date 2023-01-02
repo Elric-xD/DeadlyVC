@@ -63,8 +63,6 @@ def menu_markup(user_id, videoid):
     ],
     [
       InlineKeyboardButton(text="Next▶️", callback_data=f'cbnext | {user_id}'), 
-      InlineKeyboardButton("Close🗑", callback_data="cls"), 
-      
     ], 
   ]
   return buttons
@@ -81,9 +79,6 @@ def nexta_markup(user_id, videoid):
     ]
     [
       InlineKeyboardButton(text="◀️Back", callback_data=f'cbmenu'),         
-      InlineKeyboardButton(
-        "Close🗑", callback_data="cls"
-      ), 
     ]
   ]
   return buttons   
