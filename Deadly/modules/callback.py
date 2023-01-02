@@ -11,7 +11,7 @@ from Deadly import (
     OWNER_NAME,
     UPDATES_CHANNEL,
 )
-from Deadly.core.keyboard import menu_markup, song_download_markup, stream_markup, audio_markup
+from Deadly.core.keyboard import menu_markup, song_download_markup, stream_markup, audio_markup, support_markup
 
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
@@ -80,10 +80,12 @@ async def cbmenu(_, query: CallbackQuery):
 
 
 @Client.on_callback_query(filters.regex("cbsupport"))
-async def cbmenu(_, query: CallbackQuery):
+async def cbsupport(_, query: CallbackQuery):
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
-    buttons = support_markup(user_id)
+    GROUP_SUPPORT = GROUP_SUPPORT
+    UPDATES_CHANNEL = UPDATES_CHANNEL
+    buttons = support_markup(user_id, SUPPORT_GROUP, UPDATE_CHANNEL)
     if chat_id in QUEUE:
           await query.edit_message_reply_markup(         
               reply_markup=InlineKeyboardMarkup(buttons),
