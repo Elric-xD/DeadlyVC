@@ -11,7 +11,7 @@ from Deadly import bot as app
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
-from config import SUDO_USERS
+from Deadly import SUDO_USERS
 
 async def aexec(code, client, message):
     exec(
