@@ -143,7 +143,7 @@ async def play(c: Client, m: Message):
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
                 await m.reply_photo(  
-                    photo=" {IMG_1}",              
+                    photo="{IMG_1}",              
                     caption=f"⏳ Added to Queue at **#{pos}**\n\n💡Title: [{songname}]({link})\n\n\n👤Added By: {m.from_user.mention()}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
@@ -160,7 +160,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(  
-                    photo=f{IMG_4"}",        
+                    photo=f"{IMG_4}",        
                     caption=f"📡 Started Streaming 💡\n\n💡Title: [{songname}]({link})\n\n👤Added By: {requester}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
