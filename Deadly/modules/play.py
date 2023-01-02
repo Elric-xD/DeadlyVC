@@ -126,7 +126,7 @@ async def play(c: Client, m: Message):
                 )
     if replied:
         if replied.audio or replied.voice:
-            suhu = await replied.reply("📥 **Downloading audio...**")
+            suhu = await replied.reply("Dᴏᴡɴʟᴏᴀᴅɪɴɢ..Pʟᴇᴀsᴇ Wᴀɪᴛ..!! 🍁💫")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -164,6 +164,7 @@ async def play(c: Client, m: Message):
                     caption=f"📡 Started Streaming 💡\n\n💡Title: [{songname}]({link})\n\n👤Added By: {requester}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
+                await add_active_chat(chat_id)
              except Exception as e:
                 await suhu.delete()
                 await m.reply_text(f"🚫 error:\n\n» {e}")
@@ -186,7 +187,7 @@ async def play(c: Client, m: Message):
                 )
             )
         else:
-            suhu = await m.reply_text(
+            suhu = await m.reply_text(         
         f"Sᴇᴀʀᴄʜɪɴɢ...Pʟᴇᴀsᴇ Wᴀɪᴛ...!! 🍁💫"
     )
             query = m.text.split(None, 1)[1]
@@ -234,7 +235,7 @@ async def play(c: Client, m: Message):
                                video_parameters=MediumQualityVideo(),
                             ),
                                stream_type=StreamType().local_stream,
-                            )                                                                          
+                            )                                                                                                      
                             await m.reply_photo(
                                 photo=playimg,
                                 caption=f"📡 Started Streaming 💡\n\n💡Title: [{title}]({info})\n⏰ Duration: {duration}\n👤Added By: {requester}",
