@@ -42,7 +42,13 @@ def audio_markup(user_id):
 def stream_markup(user_id, videoid):
   buttons = [
     [
-      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="IIPause", callback_data=f'cbpause | {user_id}'),
+      InlineKeyboardButton(text="▷Resume", callback_data=f'cbresume | {user_id}'),
+      InlineKeyboardButton(text="‣‣ISkip", callback_data=f'cbskip | {user_id}'),
+      InlineKeyboardButton(text="▢Stop", callback_data=f'cbstop | {user_id}'), 
+    ],
+    [
+      InlineKeyboardButton(text="• Dᴏᴡɴʟᴏᴀᴅ", callback_data=f'cbmenu | {user_id}'),
       InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
@@ -74,7 +80,7 @@ def nexta_markup(user_id, videoid):
       InlineKeyboardButton(text="🔊Unmute", callback_data=f'cbunmute | {user_id}'), 
     ], 
     [
-      InlineKeyboardButton(text="🔽Down", callback_data=f'cbdown | {videoid}'),         
+      InlineKeyboardButton(text="🔽j", callback_data=f'cbdown | {videoid}'),         
       InlineKeyboardButton(text="• Inline", switch_inline_query_current_chat=""),
     ]
     [
