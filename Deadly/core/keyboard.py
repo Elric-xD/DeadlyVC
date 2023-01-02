@@ -39,10 +39,10 @@ def audio_markup(user_id):
   ]
   return buttons
 
-def stream_markup(user_id, dlurl, info):
+def stream_markup(user_id, videoid):
   buttons = [
     [
-      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="• Cᴘᴀɴᴀʟ", callback_data=f'cbmenu | {user_id} | {videoid}'),
       InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ •", callback_data=f'cbsupport'),
     ],
     [
@@ -51,7 +51,7 @@ def stream_markup(user_id, dlurl, info):
   ]
   return buttons
 
-def menu_markup(user_id):
+def menu_markup(user_id, videoid):
   buttons = [
     [
       InlineKeyboardButton(text="IIPause", callback_data=f'cbpause | {user_id}'),
