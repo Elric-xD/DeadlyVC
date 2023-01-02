@@ -83,9 +83,15 @@ async def cbmenu(_, query: CallbackQuery):
 async def cbsupport(_, query: CallbackQuery):
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
-    GROUP_SUPPORT = GROUP_SUPPORT
-    UPDATES_CHANNEL = UPDATES_CHANNEL
-    buttons = support_markup(user_id, SUPPORT_GROUP, UPDATE_CHANNEL)
+    buttons = [
+                [
+                  InlineKeyboardButton(text="💁Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP_SUPPORT}"),
+                  InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ🙋", url=f"t.me/{UPDATES_CHANNEL}"),
+                ],
+                [
+                  InlineKeyboardButton(text="Close🗑", callback_data=f'cls'),
+                ],    
+              ]
     if chat_id in QUEUE:
           await query.edit_message_reply_markup(         
               reply_markup=InlineKeyboardMarkup(buttons),
