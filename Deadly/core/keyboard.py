@@ -42,10 +42,10 @@ def audio_markup(user_id):
 def stream_markup(user_id, videoid):
   buttons = [
     [
-      InlineKeyboardButton(text="IIPause", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷Resume", callback_data=f'cbresume | {user_id}'),
-      InlineKeyboardButton(text="‣‣ISkip", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢Stop", callback_data=f'cbstop | {user_id}'), 
+      InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
+      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}'),
+      InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
+      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}'), 
     ],
     [
       InlineKeyboardButton(text="• Dᴏᴡɴʟᴏᴀᴅ", callback_data=f'cbdown | {videoid}'),
