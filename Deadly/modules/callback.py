@@ -78,6 +78,37 @@ async def cbmenu(_, query: CallbackQuery):
     else:
         await query.answer("❌ Nothing is Currently Streaming", show_alert=True)
 
+
+@Client.on_callback_query(filters.regex("cbsupport"))
+async def cbmenu(_, query: CallbackQuery):
+    chat_id = query.message.chat.id
+    user_id = query.message.from_user.id
+    buttons = support_markup(user_id)
+    if chat_id in QUEUE:
+          await query.edit_message_reply_markup(         
+              reply_markup=InlineKeyboardMarkup(buttons),
+          )
+    else:
+        await query.answer("❌ Nothing is Currently Streaming", show_alert=True)
+
+
+
+@Client.on_callback_query(filters.regex("cbnext"))
+async def cbmenu(_, query: CallbackQuery):
+    a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
+    if not a.can_manage_voice_chats:
+        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+    chat_id = query.message.chat.id
+    user_id = query.message.from_user.id
+    buttons = nexta_markup(user_id)
+    if chat_id in QUEUE:
+          await query.answer("Control Panel Page2 Opened")
+          await query.edit_message_reply_markup(         
+              reply_markup=InlineKeyboardMarkup(buttons),
+          )
+    else:
+        await query.answer("❌ Nothing is Currently Streaming", show_alert=True)
+
 @Client.on_callback_query(filters.regex("cbdown"))
 async def cbdown(_, CallbackQuery):
     await CallbackQuery.answer()
