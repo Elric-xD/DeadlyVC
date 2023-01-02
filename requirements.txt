@@ -27,3 +27,4 @@ telegraph
 python-arq
 bs4
 motor==3.0.0
+pykeyboard
