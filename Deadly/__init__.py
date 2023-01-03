@@ -49,3 +49,12 @@ ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.p
 YOUTUBE_IMG_URL = getenv("YOUTUBE_IMG_URL", "https://telegra.ph/file/58da23d726b601dc3b18e.jpg")
 PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.jpg") 
 
+
+
+
+"""
+--------------------------------------------------------------DON'T EDIT FROM HERE------------------------------------------------------------------------------------------
+"""
+
+
+
