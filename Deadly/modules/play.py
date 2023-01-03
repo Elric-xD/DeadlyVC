@@ -17,8 +17,8 @@ import requests
 from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
-from Deadly.core import Queues 
-from Deadly.calls import Freya
+from Deadly.core.Queues import * 
+from Deadly.calls.Freya import Plugin1, Plugin2, Plugin3, Plugin4
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
 from Deadly import app as Client
@@ -32,7 +32,8 @@ from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
 from Deadly.core.thumbnail import gen_thumb as play_thumb, gen_qthumb as queue_thumb
 from Deadly.core.keyboard import stream_markup, audio_markup
-from Deadly import BOT_USERNAME, IMG_1, IMG_2, IMG_3, IMG_4, IMG_5, ASSISTANT_USERNAME
+from Deadly import BOT_USERNAME
+from config import IMG_1, IMG_2, IMG_3, IMG_4, IMG_5
 
 def ytsearch(query):
     try:
@@ -243,7 +244,7 @@ async def play(c: Client, m: Message):
                                    ),
                                    stream_type=StreamType().local_stream,
                                )
-                             if int(assistant) == 3:
+                            if int(assistant) == 3:
                                await Plugin3.join_group_call(
                                    chat_id,
                                    AudioImagePiped(
@@ -280,6 +281,6 @@ async def play(c: Client, m: Message):
 @Client.on_message(command(["maxvc", f"maxvc@{BOT_USERNAME}"]) & other_filters)
 async def get_play_status(client: Client, message: Message):
     await message.delete()
-    bc = call_py.get_max_voice_chat()
+    bc = Plugin1.get_max_voice_chat()
     await message.reply_text(f"Max VoiceChat Allowed: {bc}")
 
