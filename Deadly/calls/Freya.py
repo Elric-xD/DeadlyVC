@@ -18,7 +18,7 @@ from pytgcalls.types.input_stream.quality import (HighQualityAudio,
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
-from Deadly import STRING1, STRING2, STRING3, STRING4, get_queue
+from Deadly import STRING1, STRING2, STRING3, STRING4
 from Deadly import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
                    BOT_NAME, app)
 
