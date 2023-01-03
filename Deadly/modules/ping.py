@@ -4,9 +4,10 @@ import psutil
 from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message
-from Deadly import BOT_NAME, PING_URL
+from Deadly import BOT_NAME
+from config import PING_URL
 from Deadly import app, _boot_
-from Deadly.calls import Freya
+from Deadly.calls.Freya import Plugin1, Plugin2, Plugin3, Plugin4
 from Deadly.core.Cache.format import get_readable_time
 
 # load
@@ -36,7 +37,7 @@ async def pingm(client, message: Message):
     a2 = await Plugin2.ping
     a3 = await Plugin3.ping
     a4 = await Plugin4.ping
-    pytgping = f"{a1+a2+a3+a4}*
+    pytgping = f"{a1+a2+a3+a4}"
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(f"""
