@@ -27,7 +27,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioImagePiped, AudioVideoPiped
-from pytgcalls.types.input_stream.quality import MediumQualityVideo
+from pytgcalls.types.input_stream.quality import MediumQualityVideo, HighQualityVideo
 from pytgcalls.types.input_stream import AudioPiped
 from youtubesearchpython import VideosSearch
 from Deadly.core.thumbnail import gen_thumb as play_thumb, gen_qthumb as queue_thumb
