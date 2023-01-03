@@ -8,7 +8,7 @@ from pyrogram import Client
 from motor.motor_asyncio import AsyncIOMotorClient as Bot
 from aiohttp import ClientSession
 from pytgcalls import PyTgCalls, idle
-from Clients.client import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, 
+from Client.client import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, 
                                     ASS_CLI_4, app)
 
 
