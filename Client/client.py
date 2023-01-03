@@ -18,7 +18,7 @@ else:
         api_id=API_ID,
         api_hash=API_HASH,
         session_name=STRING1,
-        plugins=dict(root="Deadly.plugins.assistant"),
+        plugins=dict(root="Deadly.modules.assistant"),
     )
 
 
@@ -29,7 +29,7 @@ else:
         api_id=API_ID,
         api_hash=API_HASH,
         session_name=STRING2,
-        plugins=dict(root="Deadly.plugins.assistant"),
+        plugins=dict(root="Deadly.modules.assistant"),
     )
 
 
@@ -40,7 +40,7 @@ else:
         api_id=API_ID,
         api_hash=API_HASH,
         session_name=STRING3,
-        plugins=dict(root="Deadly.plugins.assistant"),
+        plugins=dict(root="Deadly.modules.assistant"),
     )
 
 
@@ -51,5 +51,5 @@ else:
         api_id=API_ID,
         api_hash=API_HASH,
         session_name=STRING4,
-        plugins=dict(root="Deadly.plugins.assistant"),
+        plugins=dict(root="Deadly.modules.assistant"),
     )
