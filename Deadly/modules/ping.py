@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from Deadly import BOT_NAME, PING_URL
 from Deadly import bot as app, _boot_
 from Deadly import bot as app
-from Deadly import call_py as Akki
+from Deadly.calls import  Freya
 from Deadly.core.Cache.format import get_readable_time
 
 # load
@@ -33,7 +33,11 @@ async def pingm(client, message: Message):
         caption="**Pinging. . . **"
     )
     start = datetime.now()
-    pytgping = await Akki.ping
+    a1 = await Plugin1.ping
+    a2 = await Plugin2.ping
+    a3 = await Plugin3.ping
+    a4 = await Plugin4.ping
+    pytgping = f"{a1+a2+a3+a4}*
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(f"""
