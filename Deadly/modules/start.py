@@ -6,7 +6,9 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from Deadly import (    
     BOT_NAME,
-    BOT_USERNAME,
+    BOT_USERNAME, 
+) 
+from config import (
     GROUP_SUPPORT,
     OWNER_NAME,
     LOG_ID, 
