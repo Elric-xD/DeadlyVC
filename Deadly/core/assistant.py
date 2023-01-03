@@ -1,4 +1,4 @@
-from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
+from Deadly import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
                    ASSID1, ASSID2, ASSID3, ASSID4, ASSNAME1, ASSNAME2,
                    ASSNAME3, ASSNAME4, ASSUSERNAME1, ASSUSERNAME2,
                    ASSUSERNAME3, ASSUSERNAME4)
