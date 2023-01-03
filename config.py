@@ -15,23 +15,37 @@ admins = {}
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH", None)
 BOT_TOKEN = getenv("BOT_TOKEN", None)
+DB_URL = getenv("DB_URL", None) 
 LOG_ID = int(getenv("LOG_ID")) 
 OWNER_ID = int(getenv("OWNER_ID"))
 
-STRING1 = getenv("SESSION_NAME", None)
-STRING2 = getenv("SESSION_NAME2", None)
-STRING3 = getenv("SESSION_NAME3", None)
-STRING4 = getenv("SESSION_NAME4", None)
-
-
-
-OWNER_NAME = getenv("OWNER_NAME", None)
-DB_URL = getenv("DB_URL", None) 
-ALIVE_NAME = getenv("ALIVE_NAME", None)
-
-#SUPPPORT LIST
 GROUP_SUPPORT = getenv("GROUP_SUPPORT", None)
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", None)
+ALIVE_NAME = getenv("ALIVE_NAME", None)
+OWNER_NAME = getenv("OWNER_NAME", None)
+SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5937170640").split()))
+
+
+if str(getenv("STRING_SESSION1")).strip() == "":
+    STRING1 = str(None)
+else:
+    STRING1 = str(getenv("STRING_SESSION1"))
+
+if str(getenv("STRING_SESSION2")).strip() == "":
+    STRING2 = str(None)
+else:
+    STRING2 = str(getenv("STRING_SESSION2"))
+
+if str(getenv("STRING_SESSION3")).strip() == "":
+    STRING3 = str(None)
+else:
+    STRING3 = str(getenv("STRING_SESSION3"))
+
+if str(getenv("STRING_SESSION4")).strip() == "":
+    STRING4 = str(None)
+else:
+    STRING4 = str(getenv("STRING_SESSION4"))
+
 
 #EXTRA
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
