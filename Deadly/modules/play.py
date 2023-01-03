@@ -21,7 +21,7 @@ from Deadly.core import Queues
 from Deadly.calls import Freya
 from Deadly.database.voicechatdb import *
 from Deadly.core.utils import bash
-from Deadly import bot as Client
+from Deadly import app as Client
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls.types import Update
