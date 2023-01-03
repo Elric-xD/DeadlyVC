@@ -7,7 +7,7 @@ import subprocess
 from time import time
 from io import StringIO
 from inspect import getfullargspec
-from Deadly import bot as app
+from Deadly import app
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
