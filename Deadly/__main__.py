@@ -11,19 +11,13 @@ from pytgcalls import idle
 from config import LOG_ID, STRING1, STRING2, STRING3, STRING4
 from Deadly import ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASSID1, ASSID2, ASSID3, ASSID4, ASSNAME1, ASSNAME2, ASSNAME3, ASSNAME4, BOT_ID, BOT_NAME, OWNER_ID, app
 
-from Deadly.calls import Freya
+from Deadly.calls.Freya import Plugin1, Plugin2, Plugin3, Plugin4
 
 
 loop = asyncio.get_event_loop()
 
 async def start_bot():
-    a = await app.get_chat_member(LOG_ID, BOT_ID)
-    if a.status != "administrator":
-        print("Promote Bot as Admin in Logger Channel")
-        print(f"Stopping Bot")
-        return
-    print(f"Bot Started as {BOT_NAME}!")
-    print(f"ID :- {BOT_ID}!")
+    print(f"Bot Started Successfully!")
     if STRING1 != "None":
         try:
             await ASS_CLI_1.send_message(
@@ -41,8 +35,7 @@ async def start_bot():
             await ASS_CLI_1.join_chat("TheBotUpdates")
         except:
             pass
-        print(f"Assistant 1 Started as {ASSNAME1}!")
-        print(f"ID :- {ASSID1}!")
+        print(f"Assistant 1 Started as Successfully!")
     if STRING2 != "None":
         try:
             await ASS_CLI_2.send_message(
@@ -60,8 +53,7 @@ async def start_bot():
             await ASS_CLI_2.join_chat("TheBotUpdates")
         except:
             pass
-        print(f"Assistant 2 Started as {ASSNAME2}!")
-        print(f"ID :- {ASSID2}!")
+        print(f"Assistant 2 Started as Successfully!")
     if STRING3 != "None":
         try:
             await ASS_CLI_3.send_message(
@@ -79,8 +71,7 @@ async def start_bot():
             await ASS_CLI_3.join_chat("TheBotUpdates")
         except:
             pass
-        print(f"Assistant 3 Started as {ASSNAME3}!")
-        print(f"ID :- {ASSID3}!")
+        print(f"Assistant 3 Started as Successfully!")
     if STRING4 != "None":
         try:
             await ASS_CLI_4.send_message(
@@ -96,10 +87,9 @@ async def start_bot():
         try:
             await ASS_CLI_4.join_chat("TheDeadlyBots")
             await ASS_CLI_4.join_chat("TheBotUpdates")
+            print(f"Assistant 4 Started as Successfully!")
         except:
             pass
-    print(f"Assistant 4 Started as {ASSNAME4}!")
-    print(f"ID :- {ASSID4}!")
     print("Finalizing Booting...")
     print(f"Music Bot Boot Completed.")
     if STRING1 != "None":
