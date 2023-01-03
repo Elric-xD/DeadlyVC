@@ -17,6 +17,8 @@ _boot_ = time.time()
 """
 --------------------------------------------------------------DON'T EDIT FROM HERE------------------------------------------------------------------------------------------
 """
+
+
 loop = asyncio.get_event_loop()
 
 
@@ -114,7 +116,7 @@ ASSUSERNAME4 = ""
 ASSMENTION4 = ""
 random_assistant = []
 
-# STARTING BOT
+# STARTING BOT XD
 
 async def initiate_bot():
     print("Starting Music Bot...")
