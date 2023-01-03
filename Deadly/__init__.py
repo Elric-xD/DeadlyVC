@@ -166,7 +166,7 @@ async def start_bot():
         )
         ASSUSERNAME2 = getme2.username
         ASSMENTION2 = getme2.mention
-     if STRING3 != "None":
+    if STRING3 != "None":
         getme3 = await ASS_CLI_3.get_me()
         ASSID3 = getme3.id
         ASSIDS.append(ASSID3)
