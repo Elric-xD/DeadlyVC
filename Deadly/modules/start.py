@@ -4,8 +4,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
-from Deadly import (
-    ASSISTANT_NAME,
+from Deadly import (    
     BOT_NAME,
     BOT_USERNAME,
     GROUP_SUPPORT,
@@ -13,7 +12,7 @@ from Deadly import (
     LOG_ID, 
     UPDATES_CHANNEL,
 )
-from Deadly import bot as app
+from Deadly import app
 from Deadly.core.filters import other_filters2, command
 from Deadly.core.decorators import authorized_users_only
 from youtubesearchpython.__future__ import VideosSearch
