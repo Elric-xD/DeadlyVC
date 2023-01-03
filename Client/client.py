@@ -1,9 +1,9 @@
 from pyrogram import Client
-
-from Deadly import BOT_TOKEN, STRING1, STRING2,
-                    STRING3, STRING4)
-API_ID = "8186557"
-API_HASH = "efd77b34c69c164ce158037ff5a0d117"
+import config 
+from config import (
+API_ID, API_HASH, BOT_TOKEN, STRING1, 
+STRING2, STRING3, STRING4
+) 
 
 app = Client(
     "DeadlyVC",
