@@ -61,7 +61,7 @@ random_assistant = []
 
 # STARTING BOT
 
-async def start_bot():
+async def initiate_bot():
     print("Starting Music Bot...")
     await app.start()
     print("Booted Assistant Client")
