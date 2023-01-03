@@ -20,7 +20,7 @@ from Deadly.calls.Freya import (Plugin1, Plugin2,
 
 loop = asyncio.get_event_loop()
 
-async def initiate_bot():
+async def start_bot():
     a = await app.get_chat_member(LOG_ID, BOT_ID)
     if a.status != "administrator":
         print("Promote Bot as Admin in Logger Channel")
@@ -132,5 +132,5 @@ async def initiate_bot():
         return
    
 if __name__ == "__main__":
-    loop.run_until_complete(initiate_bot())
+    loop.run_until_complete(start_bot())
     
