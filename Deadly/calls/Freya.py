@@ -20,10 +20,10 @@ from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
 from Deadly import STRING1, STRING2, STRING3, STRING4, get_queue
 from Deadly import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
-                   BOT_NAME, app, db_mem)
+                   BOT_NAME, app)
 
 from Deadly.core import Queues
-from Deadly.Converter import convert
+from Deadly.converter import convert
 from Deadly.database.assistantdb import *
 from Deadly.database.voicechatdb import *
 
