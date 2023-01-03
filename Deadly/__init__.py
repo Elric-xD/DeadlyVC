@@ -63,8 +63,8 @@ random_assistant = []
 
 async def initiate_bot():
     print("Starting Music Bot...")
-    await app.start()
-    print("Booted Assistant Client")
+    
+    print("Booting Assistant Client")
     if STRING1 != "None":
        await ASS_CLI_1.start()       
        random_assistant.append(1)
