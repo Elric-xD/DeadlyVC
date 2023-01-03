@@ -1,21 +1,25 @@
 
-from Deadly.core.Cache.admins import admins
-from Deadly import call_py
+from Deadly.core.admins import admins
+from Deadly.calls.Freya import plugin, plugin2, plugin3, plugin4, plugin5
 from pyrogram import filters
+from Deadly import app as Client
 from Deadly.core.decorators import authorized_users_only
 from Deadly.core.filters import command, other_filters
-from Deadly.core.queues import QUEUE, clear_queue
-from Deadly import bot as Client
-from Deadly.database.voicechatdb import *
-from Deadly.core.utils import skip_current_song, skip_item
-from Deadly import BOT_USERNAME, GROUP_SUPPORT, IMG_3, UPDATES_CHANNEL, IMG_5
+from Deadly.core.Queues import QUEUE, clear_queue
+from Deadly.calls.Freya import skip_current_song, skip_item
+
+from Deadly import BOT_USERNAME
+from config import GROUP_SUPPORT, SKIP_IMG, UPDATES_CHANNEL
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
     Message,
 )
-from Deadly.core.keyboard import stream_markup
+from Deadly.database.assistantdb import *
+from Deadly.database.voicechatdb import remove_active_video_chat, remove_active_chat
+
+
 
 bttn = InlineKeyboardMarkup(
     [[InlineKeyboardButton("🔙 Go Back", callback_data="cbmenu")]]
@@ -27,7 +31,7 @@ bcl = InlineKeyboardMarkup(
 )
 
 
-@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["reload", f"adminchache"]) & other_filters)
 @authorized_users_only
 async def update_admin(client, message):
     global admins
@@ -49,10 +53,7 @@ async def skip(client, m: Message):
         [
             [
                 InlineKeyboardButton(
-                    text="• Mᴇɴᴜ", callback_data="cbmenu"
-                ),
-                InlineKeyboardButton(
-                    text="• Cʟᴏsᴇ", callback_data="cls"
+                    text="• cʟᴏsᴇ", callback_data="cls"
                 ),
             ]
         ]
@@ -69,7 +70,7 @@ async def skip(client, m: Message):
             await m.reply("🗑️ **Clearing the Queues**\n\n**• userbot leaving voice chat**")
         else:
             await m.reply_photo(
-                photo=f"{IMG_3}",
+                photo=f"{SKIP_IMG}",
                 caption=f"⏭ **Skipped to the next track.**\n\n🏷 **Name:** [{op[0]}]({op[1]})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
                 reply_markup=keyboard,
             )
@@ -98,18 +99,27 @@ async def skip(client, m: Message):
 @authorized_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
-    user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.leave_group_call(chat_id)
+            if int(assistant) == 1:
+               await plugin.leave_group_call(chat_id)
+            if int(assistant) == 6:
+               await plugin.leave_group_call(chat_id)
+            if int(assistant) == 2:
+               await plugin2.leave_group_call(chat_id)
+            if int(assistant) == 3:
+               await plugin3.leave_group_call(chat_id)
+            if int(assistant) == 4:
+               await plugin4.leave_group_call(chat_id)
             await remove_active_chat(chat_id)
             clear_queue(chat_id)
-            await m.reply(f"🎧 Voicechat Ended by {requester}!")
+            await m.reply("✅ The userbot has disconnected from the video chat.")
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("Bot isn't streaming on voice chat.")
+        await m.reply("❌ **nothing is streaming**")
 
 
 @Client.on_message(
@@ -118,18 +128,25 @@ async def stop(client, m: Message):
 @authorized_users_only
 async def pause(client, m: Message):
     chat_id = m.chat.id
-    user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.pause_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.pause_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.pause_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.pause_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.pause_stream(chat_id)
             await m.reply(
-                f"🎧 Voicechat Paused by {requester}"
+                "⏸ **Track paused.**\n\n• **To resume the stream, use the**\n» /resume command."
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("Bot isn't streaming on voice chat.")
+        await m.reply("❌ **nothing in streaming**")
 
 
 @Client.on_message(
@@ -138,18 +155,25 @@ async def pause(client, m: Message):
 @authorized_users_only
 async def resume(client, m: Message):
     chat_id = m.chat.id
-    user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.resume_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.resume_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.resume_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.resume_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.resume_stream(chat_id)
             await m.reply(
-                f"🎧 Voicechat Resumed by {requester}"
+                "▶️ **Track resumed.**\n\n• **To pause the stream, use the**\n» /pause command."
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("Bot isn't streaming on voice chat.")
+        await m.reply("❌ **nothing in streaming**")
 
 
 @Client.on_message(
@@ -158,18 +182,25 @@ async def resume(client, m: Message):
 @authorized_users_only
 async def mute(client, m: Message):
     chat_id = m.chat.id
-    user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.mute_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.mute_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.mute_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.mute_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.mute_stream(chat_id)
             await m.reply(
-                f"🎧 Voicechat Muted by {requester}!"
+                "🔇 **Userbot muted.**\n\n• **To unmute the userbot, use the**\n» /unmute command."
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("Bot isn't streaming on voice chat.")
+        await m.reply("❌ **nothing in streaming**")
 
 
 @Client.on_message(
@@ -178,99 +209,150 @@ async def mute(client, m: Message):
 @authorized_users_only
 async def unmute(client, m: Message):
     chat_id = m.chat.id
-    user_id = m.from_user.id
-    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.unmute_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.unmute_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.unmute_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.unmute_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.unmute_stream(chat_id)
             await m.reply(
-                f"🎧 Voicechat Unmuted by {requester}!"
+                "🔊 **Userbot unmuted.**\n\n• **To mute the userbot, use the**\n» /mute command."
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("Bot isn't streaming on voice chat.")
+        await m.reply("❌ **nothing in streaming**")
 
 
 @Client.on_callback_query(filters.regex("cbpause"))
 async def cbpause(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("You're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     chat_id = query.message.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.pause_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.pause_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.pause_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.pause_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.pause_stream(chat_id)
             await query.edit_message_text(
-                "⏸ The Streaming Has Paused", reply_markup=bttn
+                "⏸ the streaming has paused", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **Error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
     else:
-        await query.answer("❌ Nothing is currently Streaming", show_alert=True)
+        await query.answer("❌ nothing is currently streaming", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cbresume"))
 async def cbresume(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("You're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     chat_id = query.message.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.resume_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.resume_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.resume_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.resume_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.resume_stream(chat_id)
             await query.edit_message_text(
-                "▶️ The Streaming has Resumed", reply_markup=bttn
+                "▶️ the streaming has resumed", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **Error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
     else:
-        await query.answer("❌ Nothing is currently Streaming", show_alert=True)
+        await query.answer("❌ nothing is currently streaming", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cbstop"))
 async def cbstop(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("You're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     chat_id = query.message.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.leave_group_call(chat_id)
-            await remove_active_chat(chat_id) 
+            if int(assistant) == 1:
+               await plugin.leave_group_call(chat_id)
+            if int(assistant) == 2:
+               await plugin2.leave_group_call(chat_id)
+            if int(assistant) == 3:
+               await plugin3.leave_group_call(chat_id)
+            if int(assistant) == 4:
+               await plugin4.leave_group_call(chat_id)            
+            await remove_active_chat(chat_id)
             clear_queue(chat_id)
-            await query.edit_message_text("✅ **This Streaming has Ended**", reply_markup=bcl)
+            await query.edit_message_text("✅ **this streaming has ended**", reply_markup=bcl)
         except Exception as e:
             await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
     else:
-        await query.answer("❌ Nothing is currently Streaming", show_alert=True)
+        await query.answer("❌ nothing is currently streaming", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cbmute"))
 async def cbmute(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("You're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     chat_id = query.message.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.mute_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.mute_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.mute_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.mute_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.mute_stream(chat_id)
             await query.edit_message_text(
-                "🔇 Userbot Succesfully Muted", reply_markup=bttn
+                "🔇 userbot succesfully muted", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **Error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
     else:
-        await query.answer("❌ Nothing is currently Streaming", show_alert=True)
+        await query.answer("❌ nothing is currently streaming", show_alert=True)
 
+@Client.on_callback_query(filters.regex("cbmenu"))
+async def cbval(_, query: CallbackQuery):
+     from Deadl.inline import menu_markup
+     user_id = query.from_user.id
+     markup = menu_markup(user_id)
+     await query.edit_message_text(
+         "🏷️ Menu section", reply_markup=markup
+     )
 
 @Client.on_callback_query(filters.regex("cbunmute"))
 async def cbunmute(_, query: CallbackQuery):
@@ -280,9 +362,18 @@ async def cbunmute(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     chat_id = query.message.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.unmute_stream(chat_id)
+            if int(assistant) == 1:
+               await plugin.unmute_stream(chat_id)
+            if int(assistant) == 2:
+               await plugin2.unmute_stream(chat_id)
+            if int(assistant) == 3:
+               await plugin3.unmute_stream(chat_id)
+            if int(assistant) == 4:
+               await plugin4.unmute_stream(chat_id)
             await query.edit_message_text(
                 "🔊 userbot succesfully unmuted", reply_markup=bttn
             )
@@ -299,46 +390,22 @@ async def cbunmute(_, query: CallbackQuery):
 async def change_volume(client, m: Message):
     range = m.command[1]
     chat_id = m.chat.id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.change_volume_call(chat_id, volume=int(range))
+            if int(assistant) == 1:
+               await plugin.change_volume_call(chat_id, volume=int(range))
+            if int(assistant) == 2:
+               await plugin2.change_volume_call(chat_id, volume=int(range))
+            if int(assistant) == 3:
+               await plugin3.change_volume_call(chat_id, volume=int(range))
+            if int(assistant) == 4:
+               await plugin4.change_volume_call(chat_id, volume=int(range))
             await m.reply(
-                f"✅ **Volume set To** `{range}`%"
+                f"✅ **volume set to** `{range}`%"
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **Nothing in Streaming**")
-
-@Client.on_callback_query(filters.regex("cbskip"))
-async def cbskip(_, query: CallbackQuery):
-    a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
-    if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage video chat permission that can tap this button !", show_alert=True)
-    chat_id = query.message.chat.id
-    user_id = query.from_user.id
-    queue = await skip_current_song(chat_id)
-    if queue == 0:
-        await query.answer("❌ Nothing is Currently Playing", show_alert=True)
-    elif queue == 1:
-        await query.answer("» There's no more Music in Queue to Skip, Userbot leaving Video Chat.", show_alert=True)
-    elif queue == 2:
-        await query.answer("🗑️ Clearing the **Queues**\n\n» **Userbot** leaving Video Chat.", show_alert=True)
-    else:
-        await query.answer("goes to the next track, proccessing...")
-        await query.message.delete()
-        buttons = stream_markup(user_id)
-        requester = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})"
-        thumbnail = f"{IMG_5}"
-        title = f"{queue[0]}"
-        userid = query.from_user.id
-        gcname = query.message.chat.title
-        ctitle = await CHAT_TITLE(gcname)
-        image = await thumb(thumbnail, title, userid, ctitle)
-        await _.send_photo(
-            chat_id,
-            photo=image,
-            reply_markup=InlineKeyboardMarkup(buttons),
-            caption=f"⏭ **Skipped** to the next track.\n\n🗂 **Name:** [{queue[0]}]({queue[1]})\n💭 **Chat:** `{chat_id}`\n🧸 **Request by:** {requester}",
-        )
-        remove_if_exists(image)
+        await m.reply("❌ **nothing in streaming**")
