@@ -26,7 +26,13 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 LOG_ID = int(getenv("LOG_ID")) 
 OWNER_ID = int(getenv("OWNER_ID"))
 
-SESSION_NAME = getenv("SESSION_NAME", None)
+STRING1 = getenv("SESSION_NAME", None)
+STRING2 = getenv("SESSION_NAME2", None)
+STRING3 = getenv("SESSION_NAME3", None)
+STRING4 = getenv("SESSION_NAME4", None)
+
+
+
 OWNER_NAME = getenv("OWNER_NAME", None)
 DB_URL = getenv("DB_URL", None) 
 ALIVE_NAME = getenv("ALIVE_NAME", None)
@@ -103,7 +109,7 @@ random_assistant = []
 
 async def start_bot():
     print("Starting Music Bot...")
-    await bot.start()
+    await app.start()
     print("Booted Assistant Client")
     if STRING1 != "None":
        await ASS_CLI_1.start()
