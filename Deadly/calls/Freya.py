@@ -108,7 +108,7 @@ async def skip_current_song(chat_id):
                await remove_active_chat(chat_id)
             if int(assistant) == 3:
                await Plugin3.leave_group_call(chat_id)
-              await remove_active_chat(chat_id)
+               await remove_active_chat(chat_id)
            if int(assistant) == 4:
               await Plugin4.leave_group_call(chat_id)
               await remove_active_chat(chat_id)
