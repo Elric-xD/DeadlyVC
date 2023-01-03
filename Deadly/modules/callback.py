@@ -1,15 +1,14 @@
 """ © <https://github.com/Elric-xD> """
 
 import yt_dlp
-from Deadly.core.queues import QUEUE
+from Deadly.core import Queues 
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from Deadly import (
-    ASSISTANT_NAME,
     BOT_NAME,
     BOT_USERNAME,
     GROUP_SUPPORT,
-    OWNER_NAME,
+    OWNER_ID,
     UPDATES_CHANNEL,
 )
 from Deadly.core.keyboard import menu_markup, song_download_markup, stream_markup, audio_markup
