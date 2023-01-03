@@ -192,21 +192,6 @@ async def initiate_bot():
         )
         ASSUSERNAME4 = getme4.username
         ASSMENTION4 = getme4.mention     
-    print("Loading Sudo Users...")
-    sudoersdb = db.sudoers
-    sudoers = await sudoersdb.find_one({"sudo": "sudo"})
-    sudoers = [] if not sudoers else sudoers["sudoers"]
-    for user_id in SUDOERS:
-        if user_id not in sudoers:
-            sudoers.append(user_id)
-            await sudoersdb.update_one(
-                {"sudo": "sudo"},
-                {"$set": {"sudoers": sudoers}},
-                upsert=True,
-            )
-    SUDO_USERS = (SUDOERS + sudoers + OWNER_ID) if sudoers else SUDOERS
-    print("Loaded Sudo Users Successfully!")
-
 
 loop.run_until_complete(initiate_bot())
 
