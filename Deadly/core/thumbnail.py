@@ -11,7 +11,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFo
 from youtubesearchpython.__future__ import VideosSearch
 
 from Deadly import YOUTUBE_IMG_URL
-from Deadly import bot as app, ASSISTANT_ID
+from Deadly import app, BOT_ID as ASSISTANT_ID
 
 
 def changeImageSize(maxWidth, maxHeight, image):
