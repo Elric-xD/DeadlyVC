@@ -3,9 +3,8 @@ from Deadly import SUDO_USERS, OWNER_ID
 import os
 import time
 
-SUDOERS = SUDO_USERS + OWNER_ID
 
-@Client.on_message(filters.command("reboot") & filters.user(SUDOERS))
+@Client.on_message(filters.command("reboot") & filters.user(SUDO_USERS))
 async def reboot(_, m):
     ok = await m.reply("Rebooting. . .\nJust restarted your bot please wait for 3-4 mins before using this bot let this bot restart properly")
     time.sleep(3)
