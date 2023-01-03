@@ -10,7 +10,7 @@ from pyrogram.types import Message
 from pyrogram import filters, Client
 
 from Deadly import app
-from Deadly import SUDO_USERS as SUDOERS
+from config import SUDO_USERS as SUDOERS
 
 
 
