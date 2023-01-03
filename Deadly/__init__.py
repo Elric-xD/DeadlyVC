@@ -107,7 +107,7 @@ async def initiate_bot():
     global ASSID1, ASSNAME1, ASSMENTION1, ASSUSERNAME1
     global ASSID2, ASSNAME2, ASSMENTION2, ASSUSERNAME2
     global ASSID3, ASSNAME3, ASSMENTION3, ASSUSERNAME3
-    global ASSID4, ASSNAME4, ASSMENTION4, ASSUSERNAME4        await app.start()
+    global ASSID4, ASSNAME4, ASSMENTION4, ASSUSERNAME4        
     os.system("clear")
     header = "Starting Deadly Music. . . "
     print(header)      
