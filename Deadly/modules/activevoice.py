@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from Deadly import bot 
+from Deadly import app as bot 
 from Deadly import SUDO_USERS
 from Deadly.database.voicechatdb import *
 
