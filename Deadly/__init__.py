@@ -9,8 +9,6 @@ from pyrogram import Client
 from motor.motor_asyncio import AsyncIOMotorClient as Bot
 from aiohttp import ClientSession
 from pytgcalls import PyTgCalls, idle
-from Client.client import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, 
-                                    ASS_CLI_4, app)
 
 
 _boot_ = time.time()
@@ -20,6 +18,63 @@ _boot_ = time.time()
 --------------------------------------------------------------DON'T EDIT FROM HERE------------------------------------------------------------------------------------------
 """
 loop = asyncio.get_event_loop()
+
+
+
+app = Client(
+    "DeadlyVC",
+    API_ID,
+    API_HASH,
+    bot_token=BOT_TOKEN,
+    plugins=dict(root="Deadly.modules"), 
+)
+
+
+if not STRING1:
+    ASS_CLI_1 = None
+else:
+    ASS_CLI_1 = Client(
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_name=STRING1,
+        plugins=dict(root="Deadly.modules.assistant"),
+    )
+
+
+if not STRING2:
+    ASS_CLI_2 = None
+else:
+    ASS_CLI_2 = Client(
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_name=STRING2,
+        plugins=dict(root="Deadly.modules.assistant"),
+    )
+
+
+if not STRING3:
+    ASS_CLI_3 = None
+else:
+    ASS_CLI_3 = Client(
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_name=STRING3,
+        plugins=dict(root="Deadly.modules.assistant"),
+    )
+
+
+if not STRING4:
+    ASS_CLI_4 = None
+else:
+    ASS_CLI_4 = Client(
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_name=STRING4,
+        plugins=dict(root="Deadly.modules.assistant"),
+    )
+
+
+
 
 # DATABASE
 
@@ -63,7 +118,7 @@ random_assistant = []
 
 async def initiate_bot():
     print("Starting Music Bot...")
-    
+    await app.start() 
     print("Booting Assistant Client")
     if STRING1 != "None":
        await ASS_CLI_1.start()       
