@@ -5,9 +5,8 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message
 from Deadly import BOT_NAME, PING_URL
-from Deadly import bot as app, _boot_
-from Deadly import bot as app
-from Deadly.calls import  Freya
+from Deadly import app, _boot_
+from Deadly.calls import Freya
 from Deadly.core.Cache.format import get_readable_time
 
 # load
