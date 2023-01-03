@@ -49,36 +49,3 @@ ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c83b000f004f01897fe18.p
 YOUTUBE_IMG_URL = getenv("YOUTUBE_IMG_URL", "https://telegra.ph/file/58da23d726b601dc3b18e.jpg")
 PING_URL = getenv(" PING_URL", "https://te.legra.ph/file/abfcbebb3d9d8efbb7762.jpg") 
 
-""" client area """
-
-bot = Client(
-    "Deadly",
-    API_ID,
-    API_HASH,
-    bot_token=BOT_TOKEN,
-    plugins=dict(root="Deadly.modules"),
-    )
-
-blaze = Client(
-    api_id=API_ID,
-    api_hash=API_HASH,
-    session_name=SESSION_NAME,
-    
-    )
-
-user = PyTgCalls(blaze,
-    cache_duration=100,
-    overload_quiet_mode=True,)
-
-call_py = PyTgCalls(blaze, overload_quiet_mode=True)
-
-with Client("Deadly", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
-    asbot = app.get_me()
-    BOT_NAME = asbot.first_name
-    BOT_USERNAME = asbot.username
-
-with blaze as app:
-    asid = app.get_me()
-    ASSISTANT_ID = asid.id
-    ASSISTANT_NAME = asid.first_name 
-    ASSISTANT_USERNAME = asid.username
