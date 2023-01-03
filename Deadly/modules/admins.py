@@ -1,6 +1,6 @@
 
-from Deadly.core.admins import admins
-from Deadly.calls.Freya import plugin, plugin2, plugin3, plugin4, plugin5
+from Deadly.core.Cache.admins import admins
+from Deadly.calls.Freya import Plugin1 as plugin, Plugin2 as plugin2, Plugin3 as plugin3, Plugin4 as plugin4
 from pyrogram import filters
 from Deadly import app as Client
 from Deadly.core.decorators import authorized_users_only
@@ -9,7 +9,7 @@ from Deadly.core.Queues import QUEUE, clear_queue
 from Deadly.calls.Freya import skip_current_song, skip_item
 
 from Deadly import BOT_USERNAME
-from config import GROUP_SUPPORT, SKIP_IMG, UPDATES_CHANNEL
+from config import GROUP_SUPPORT, IMG_3 as SKIP_IMG, UPDATES_CHANNEL
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
