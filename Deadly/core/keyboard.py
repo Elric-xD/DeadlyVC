@@ -82,7 +82,7 @@ def nexta_markup(user_id, videoid):
     [
       InlineKeyboardButton(text="🔽j", callback_data=f'cbdown | {videoid}'),         
       InlineKeyboardButton(text="• Inline", switch_inline_query_current_chat=""),
-    ]
+    ], 
     [
       InlineKeyboardButton(text="◀️Back", callback_data=f'cbmenu'),         
     ]
