@@ -9,7 +9,7 @@ from PIL import Image
 from pyrogram.types import Message
 from pyrogram import filters, Client
 
-from Deadly import bot as app
+from Deadly import app
 from Deadly import SUDO_USERS as SUDOERS
 
 
