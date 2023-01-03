@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from Deadly import app as bot 
-from Deadly import SUDO_USERS
+from config import SUDO_USERS
 from Deadly.database.voicechatdb import *
 
 @bot.on_message(filters.command("activevoice") & filters.user(SUDO_USERS))
