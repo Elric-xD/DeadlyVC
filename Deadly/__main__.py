@@ -8,14 +8,10 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytgcalls import idle
 
-from Deadly import (LOG_ID, STRING1, STRING2, STRING3, STRING4)
-from Deadly import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
-                   ASSID1, ASSID2, ASSID3, ASSID4, ASSNAME1, ASSNAME2,
-                   ASSNAME3, ASSNAME4, BOT_ID, BOT_NAME, 
-                   OWNER_ID, app)
+from config import LOG_ID, STRING1, STRING2, STRING3, STRING4
+from Deadly import ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASSID1, ASSID2, ASSID3, ASSID4, ASSNAME1, ASSNAME2, ASSNAME3, ASSNAME4, BOT_ID, BOT_NAME, OWNER_ID, app
 
-from Deadly.calls.Freya import (Plugin1, Plugin2, 
-                                Plugin3, Plugin4)
+from Deadly.calls import Freya
 
 
 loop = asyncio.get_event_loop()
