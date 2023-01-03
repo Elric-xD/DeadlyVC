@@ -66,18 +66,15 @@ async def initiate_bot():
     await app.start()
     print("Booted Assistant Client")
     if STRING1 != "None":
-       await ASS_CLI_1.start()
-       await call_py.start()
+       await ASS_CLI_1.start()       
        random_assistant.append(1)
     print("Booted Assistant Client 1")
     if STRING2 != "None":
        await ASS_CLI_2.start()
-       await call_py2.start()
        random_assistant.append(2)
     print("Booted Assistant Client 2")
     if STRING3 != "None":
        await ASS_CLI_3.start()
-       await call_py3.start()
        random_assistant.append(3)
     print("Booted Assistant Client 3")
     if STRING4 != "None":
