@@ -8,7 +8,8 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineQueryResultPhoto, InputTextMessageContent,
                             Message)
 
-from Deadly import COMMAND_PREFIXES as ASSISTANT_PREFIX, SUDO_USERS as SUDOERS, app, random_assistant
+from config import COMMAND_PREFIXES as ASSISTANT_PREFIX, SUDO_USERS as SUDOERS
+from Deadly import app, random_assistant
 from Deadly.database import assistantdb
 from Deadly.core.assistant import get_assistant_details
 
