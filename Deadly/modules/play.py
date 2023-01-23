@@ -14,6 +14,7 @@ import aiohttp
 from Deadly.converter import convert
 import ffmpeg
 import requests
+from Deadly.invite import AssistantAdd
 from Deadly.core.fonts import CHAT_TITLE
 from PIL import Image, ImageDraw, ImageFont
 from Deadly.core.filters import command, other_filters
@@ -63,6 +64,7 @@ ACTV_CALLS = []
 
     
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
+@AssistantAdd
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
