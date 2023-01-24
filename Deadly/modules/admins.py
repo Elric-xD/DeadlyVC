@@ -17,7 +17,7 @@ from pyrogram.types import (
     Message,
 )
 from Deadly.database.assistantdb import *
-from Deadly.database.voicechatdb import remove_active_video_chat, remove_active_chat
+from Deadly.database.voicechatdb import remove_active_chat
 
 
 
